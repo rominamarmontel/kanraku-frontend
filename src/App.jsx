@@ -35,20 +35,19 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<ProfilePage />} />
-            {/* <Route path="/cart/:id" element={<CartPage />} />
-            <Route path="/admin/userlist" element={<UserListPage />} />
-            <Route path="/admin/user/:id/edit" coelementponent={<UserEditPage />} />
+            {/* <Route path="/order/:id" element={OrderPage} />
+            <Route path="/placeorder" element={PlaceOrderPage} />
+            <Route path="/shipping" element={ShippingPage} />
+            <Route path="/payment" element={PaymentPage} />
             <Route path="/admin/productlist" element={<ProductListPage />} />
             <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+            <Route path="/admin/userlist" element={<UserListPage />} />
+            <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
             <Route path="/admin/orderlist" element={<OrderListPage />} /> */}
           </Route>
 
-
-          {/* <Route path="/product/:id" element={ProductPage} />
-          <Route path="/order/:id" element={OrderPage} />
-          <Route path="/placeorder" element={PlaceOrderPage} />
-          <Route path="/shipping" element={ShippingPage} />
-          <Route path="/payment" element={PaymentPage} /> */}
+          {/* <Route path="/cart/:id" element={<CartPage />} />
+          <Route path="/product/:id" element={ProductPage} /> */}
 
           <Route path="*" element={<Error />} />
         </Routes>
