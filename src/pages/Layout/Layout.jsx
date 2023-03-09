@@ -2,6 +2,7 @@
 // import { AuthContext } from '../../context/AuthContext'
 import React from 'react'
 import './Layout.css'
+import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 
 const Layout = () => {
@@ -10,6 +11,9 @@ const Layout = () => {
       <header>
         <Navbar />
       </header>
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }

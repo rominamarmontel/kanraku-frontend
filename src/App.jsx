@@ -5,44 +5,55 @@ import Home from './pages/Home/Home'
 import Store from './pages/Store/Store'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
+import LoginPage from './pages/Login/Login'
+import RegisterPage from './pages/RegisterPage/RegisterPage'
+import ProtectedRoute from './pages/Navigation/ProtectedRoute'
+import IsLoggedOut from './pages/Navigation/IsLoggedOut'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
+import Error from './pages/Error/Error'
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   return (
     <div className="App">
-    <Routes>
-      <Route element={<Layout />}>
+      <header>
+        <Navbar />
+      </header>
+      <main>
 
-        <Route path="/" component={<Home />} /> 
-        <Route path="/store" component={<Store />} />
-        <Route path="/about" component={<About />} />
-        <Route path="/contact" component={<Contact />} />
-        <Route path="/search/:keyword" component={<Store />} />
-        
-        {/* <Route element={<IsLoggedOut />}>
-          <Route path="/login" component={<LoginPage />} />
-          <Route path="/register" component={<RegisterPage />} />
-        </Route> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/search/:keyword" element={<Store />} />
 
-        {/* <Route element={<ProtectedRoute />}>
-          <Route path="/profile" component={<ProfilPage />} />
-          <Route path="/cart/:id" component={<CartPage />} />
-          <Route path="/admin/userlist" component={<UserListPage />} />
-          <Route path="/admin/user/:id/edit" component={<UserEditPage/>} />
-          <Route path="/admin/productlist" component={<ProductListPage />} />
-          <Route path="/admin/product/:id/edit" component={<ProductEditPage />} />
-          <Route path="/admin/orderlist" component={<OrderListPage />} />
-        </Route> */}
-      </Route>
+          <Route element={<IsLoggedOut />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
 
-        {/* <Route path="/product/:id" component={ProductPage} />
-        <Route path="/order/:id" component={OrderPage} />
-        <Route path="/placeorder" component={PlaceOrderPage} />
-        <Route path="/shipping" component={ShippingPage} />
-        <Route path="/payment" component={PaymentPage} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/profile" element={<ProfilePage />} />
+            {/* <Route path="/cart/:id" element={<CartPage />} />
+            <Route path="/admin/userlist" element={<UserListPage />} />
+            <Route path="/admin/user/:id/edit" coelementponent={<UserEditPage />} />
+            <Route path="/admin/productlist" element={<ProductListPage />} />
+            <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+            <Route path="/admin/orderlist" element={<OrderListPage />} /> */}
+          </Route>
 
-        <Route path="*" element={<Error />} /> */}
-    </Routes>
-  </div>
+
+          {/* <Route path="/product/:id" element={ProductPage} />
+          <Route path="/order/:id" element={OrderPage} />
+          <Route path="/placeorder" element={PlaceOrderPage} />
+          <Route path="/shipping" element={ShippingPage} />
+          <Route path="/payment" element={PaymentPage} /> */}
+
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 

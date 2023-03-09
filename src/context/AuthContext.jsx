@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react'
 import myApi from './../service/service'
 export const AuthContext = createContext()
 
-function AuthContextWrapper(props) {
+const AuthContextWrapper = (props) => {
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -21,9 +21,10 @@ function AuthContextWrapper(props) {
   }
 
   async function authenticateUser() {
+    try {
     const currentToken = getToken()
     setToken(currentToken)
-    try {
+    if (!currentToken) return
       const response = await myApi.get('/auth/me', {
         headers: {
           Authorization: `Bearer ${currentToken}`,
