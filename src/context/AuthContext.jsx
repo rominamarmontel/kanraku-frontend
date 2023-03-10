@@ -26,7 +26,7 @@ const AuthContextWrapper = (props) => {
       setToken(currentToken)
       if (!currentToken) return
 
-      const response = await myApi.get('/auth/me', {
+      const response = await myApi.get('/auth/verify', {
         headers: {
           Authorization: `Bearer ${currentToken}`,
         },
@@ -48,8 +48,6 @@ const AuthContextWrapper = (props) => {
   useEffect(() => {
     authenticateUser()
   }, [])
-
-  // useEffect(authenticateUser, [])
 
   return (
     <AuthContext.Provider

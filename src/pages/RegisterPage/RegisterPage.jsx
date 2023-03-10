@@ -20,6 +20,7 @@ const RegisterPage = () => {
   function handleChange(event) {
     const updatedState = {
       username,
+      email,
       password,
       [event.target.id]: event.target.value,
     }
@@ -54,6 +55,17 @@ const RegisterPage = () => {
             type="text"
             id="username"
             value={username}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="email">
+          Username:&nbsp;
+          <input
+            type="email"
+            id="email"
+            value={email}
             onChange={handleChange}
           />
         </label>
