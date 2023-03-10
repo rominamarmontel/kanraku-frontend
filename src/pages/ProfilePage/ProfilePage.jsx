@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import myApi from '../../service/service'
 
 const ProfilePage = () => {
   const [username, setUsername] = useState(null)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
-  // const [address, setAddress] = useState('')
-  // const [city, setCity] = useState('')
-  // const [postalCode, setPostalCode] = useState('')
-  // const [country, setCountry] = useState('')
+  const [address, setAddress] = useState('')
+  const [city, setCity] = useState('')
+  const [postalCode, setPostalCode] = useState('')
+  const [country, setCountry] = useState('')
   const params = useParams()
   const navigate = useNavigate()
 
@@ -30,11 +30,9 @@ const ProfilePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    const userToUpdate = { username, email, password, address, city, postalCode, country }
-
+    const userToUpdate = { username, email, password }
     try {
-      const editUser = await myApi.updateJoke(params._id, userToUpdate)
+      const editUser = await myApi.updateUser(params._id, userToUpdate)
       if (editUser.status === 202) {
         navigate('/profile')
       }
@@ -73,44 +71,47 @@ const ProfilePage = () => {
           onChange={(event) => setPassword(event.target.value)}
         ></input>
       </div>
-      <div>
-        <label htmlFor="address">Shipping Address: </label>
-        <input
-          value={''}
-          name="address"
-          id="address"
-          onChange={(event) => setAddress(event.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="city">City: </label>
-        <input
-          value={''}
-          name="city"
-          id="city"
-          onChange={(event) => setCity(event.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="postalCode">Postal Code: </label>
-        <input
-          value={''}
-          name="postalCode"
-          id="postalCode"
-          onChange={(event) => setPostalCode(event.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="country">Country: </label>
-        <input
-          value={''}
-          name="country"
-          id="country"
-          onChange={(event) => setCountry(event.target.value)}
-        ></input>
-      </div>
       <button>Update your profile</button>
-    </form >
+    </form>
+    //   <form onSubmit={addHandleSubmit}>
+    //   <div>
+    //     <label htmlFor="address">Shipping Address: </label>
+    //     <input
+    //       value={''}
+    //       name="address"
+    //       id="address"
+    //       onChange={(event) => setAddress(event.target.value)}
+    //     ></input>
+    //   </div>
+    // <div>
+    //   <label htmlFor="city">City: </label>
+    //   <input
+    //     value={''}
+    //     name="city"
+    //     id="city"
+    //     onChange={(event) => setCity(event.target.value)}
+    //   ></input>
+    // </div>
+    // <div>
+    //   <label htmlFor="postalCode">Postal Code: </label>
+    //   <input
+    //     value={''}
+    //     name="postalCode"
+    //     id="postalCode"
+    //     onChange={(event) => setPostalCode(event.target.value)}
+    //   ></input>
+    // </div>
+    // <div>
+    //   <label htmlFor="country">Country: </label>
+    //   <input
+    //     value={''}
+    //     name="country"
+    //     id="country"
+    //     onChange={(event) => setCountry(event.target.value)}
+    //   ></input>
+    // </div>
+    // <button>Update your profile</button>
+    //     </form >
   )
 }
 export default ProfilePage

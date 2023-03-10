@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './OneProductCard.css'
-
+import myApi from '../../service/service'
 
 const OneProductCard = (props) => {
-  const product = props.product
-  const [qty, setQty] = useState(1)
-  const params = useParams()
-
-  const addToCartHandler = () => {
-    cart.push(`/cart/${params._id}?qty=${qty}`)
-  }
-  console.log('product: ', product)
+  const product = props
+  console.log(product)
   return (
     <div className="OneProductCard">
       <div className='container'>

@@ -18,11 +18,11 @@ import OrderPage from './pages/OrderPage/OrderPage'
 import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage'
 import ShippingPage from './pages/ShippingPage/ShippingPage'
 import PaymentPage from './pages/PaymentPage/PaymentPage'
-import ProductListPage from './pages/ProductListPage/ProductListPage'
-import ProductEditPage from './pages/ProductEditPage/ProductEditPage'
-import UserListPage from './pages/UserListPage/UserListPage'
-import UserEditPage from './pages/UserEditPage/UserEditPage'
-import OrderListPage from './pages/OrderListPage/OrderListPage'
+import ProductListPage from './pages/Admin/ProductListPage/ProductListPage'
+import ProductEditPage from './pages/Admin/ProductEditPage/ProductEditPage'
+import UserListPage from './pages/Admin/UserListPage/UserListPage'
+import UserEditPage from './pages/Admin/UserEditPage/UserEditPage'
+import OrderListPage from './pages/Admin/OrderListPage/OrderListPage'
 
 function App() {
   return (

@@ -17,7 +17,13 @@ const ProductPage = () => {
   if (!product) {
     return <div className="Loading">Loading!</div>
   }
-  return <OneProductCard product={product} />
+  return (
+    <>
+      <h2>Product detail</h2>
+
+      <OneProductCard product={product} />
+    </>
+  )
 }
 
 export default ProductPage
