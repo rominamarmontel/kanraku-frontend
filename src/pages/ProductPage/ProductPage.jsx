@@ -9,7 +9,6 @@ const ProductPage = () => {
 
   useEffect(() => {
     const url = `products/${params.id}`
-    console.log(url)
     myApi.get(url)
       .then((res) => setProduct(res.data))
       .catch((e) => console.error(e))

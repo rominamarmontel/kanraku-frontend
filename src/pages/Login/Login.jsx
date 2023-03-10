@@ -21,8 +21,8 @@ const Login = () => {
       storeToken(response.data.token)
       await authenticateUser()
     } catch (error) {
-      console.error(error.response.data.message)
-      setError(error.response.data.message)
+      console.error(error)
+      // setError(error.response.data.message)
     }
   }
   return (
@@ -56,6 +56,6 @@ const Login = () => {
   )
 }
 
-Login.propTypes = {}
+
 
 export default Login

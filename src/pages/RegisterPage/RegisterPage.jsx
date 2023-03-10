@@ -52,7 +52,7 @@ const RegisterPage = () => {
       </div>
       <div>
         <label htmlFor="email">
-          Username:&nbsp;
+          Email:&nbsp;
           <input
             type="email"
             id="email"

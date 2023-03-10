@@ -30,7 +30,7 @@ const Store = () => {
       <h1>Store</h1>
       {/* <Search handleInputChange={handleInputChange} /> */}
       {products.map((product) => {
-        return <ProductCard key={product._id} product={product} />;
+        return <ProductCard key={product._id} product={product} />
       })}
     </div>
   )
