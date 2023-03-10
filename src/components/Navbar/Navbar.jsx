@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import Search from '../Search/Search'
+
 
 const Navbar = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
@@ -10,6 +12,9 @@ const Navbar = () => {
     removeToken()
     authenticateUser()
   }
+  const handleInputChange = (event) => {
+    setSearchParams({ q: event.target.value })
+  };
   return (
     <div className='Navbar'>
       <div className='home-logo'>
@@ -41,6 +46,7 @@ const Navbar = () => {
               <button onClick={handleClick}>Logout</button>
             </>
           )}
+          <li><Search handleInputChange={handleInputChange} /></li>
         </ul>
       </nav>
     </div>

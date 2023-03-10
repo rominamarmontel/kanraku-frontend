@@ -3,6 +3,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import { useSearchParams } from 'react-router-dom'
 import Search from '../../components/Search/Search';
 import myApi from '../../service/service';
+import './Store.css'
 
 const Store = () => {
   const [products, setProducts] = useState(null)
@@ -20,21 +21,18 @@ const Store = () => {
     return <div className="Loading">Loading...</div>
   }
 
-  const handleInputChange = (event) => {
-    setSearchParams({ q: event.target.value })
-  };
+  // const handleInputChange = (event) => {
+  //   setSearchParams({ q: event.target.value })
+  // };
 
   return (
-    <>
-      <div>
-        <Search handleInputChange={handleInputChange} />
-        {products.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
-        })}
-      </div>
-
-    </>
+    <div className='Store'>
+      <h1>Store</h1>
+      {/* <Search handleInputChange={handleInputChange} /> */}
+      {products.map((product) => {
+        return <ProductCard key={product._id} product={product} />;
+      })}
+    </div>
   )
 }
-
 export default Store
