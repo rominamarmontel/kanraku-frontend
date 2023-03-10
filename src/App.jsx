@@ -55,9 +55,9 @@ function App() {
           <Route path="/admin/userlist" element={<UserListPage />} />
           <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
           <Route path="/admin/orderlist" element={<OrderListPage />} />
+          <Route path="/cart" element={<CartPage />} />
           {/* </Route> */}
 
-          <Route path="/cart/:id" element={<CartPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
 
           <Route path="*" element={<Error />} />

@@ -21,14 +21,15 @@ const Store = () => {
     return <div className="Loading">Loading...</div>
   }
 
-  // const handleInputChange = (event) => {
-  //   setSearchParams({ q: event.target.value })
-  // };
+  const handleInputChange = (event) => {
+    setSearchParams({ q: event.target.value })
+  };
 
   return (
     <div className='Store'>
+      <Search handleInputChange={handleInputChange} />
+
       <h1>Store</h1>
-      {/* <Search handleInputChange={handleInputChange} /> */}
       {products.map((product) => {
         return <ProductCard key={product._id} product={product} />
       })}

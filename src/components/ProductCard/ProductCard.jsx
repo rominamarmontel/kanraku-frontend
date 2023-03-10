@@ -14,7 +14,7 @@ const ProductCard = (props) => {
           </picture>
           <p className='name'>{product.name}</p>
         </Link>
-        <p className='price'><span>price:</span> {product.price}</p>
+        <p className='price'><span>price:</span>{product.price} €</p>
       </div>
     </div >
   )
