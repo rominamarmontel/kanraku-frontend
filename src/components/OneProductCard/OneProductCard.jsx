@@ -4,13 +4,14 @@ import './OneProductCard.css'
 import myApi from '../../service/service'
 
 const OneProductCard = (props) => {
-  const product = props
-  console.log(product)
+  console.log(props)
+  const product = props.product.oneProduct
+
   return (
     <div className="OneProductCard">
       <div className='container'>
         <picture>
-          <img width={100} src={product.image_url} alt={product.name} />
+          <img width={100} src={product.image} alt={product.name} />
         </picture>
         <div className='product-details'>
           <h2 className='name'>
@@ -19,17 +20,16 @@ const OneProductCard = (props) => {
         </div>
         <p className='brand'>{product.brand}</p>
         <p className='category'>{product.category}</p>
-        <p className='description'>{product.tagline}</p>
+        <p className='description'>{product.description}</p>
         <p className='price'>{product.price}</p>
-        {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
-        <p className='qty'>{product.qty}</p>
+        <p className='countInStock'> {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}</p>
       </div>
-      <button
+      {/* <button
         onClick={addToCartHandler}
         className='btn-block'
         type='button'
         disabled={product.countInStock === 0}
-      >Add To Cart</button>
+      >Add To Cart</button> */}
     </div>
   )
 }
