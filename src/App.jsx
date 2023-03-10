@@ -12,6 +12,17 @@ import IsLoggedOut from './pages/Navigation/IsLoggedOut'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import Error from './pages/Error/Error'
 import Navbar from './components/Navbar/Navbar'
+import ProductPage from './pages/ProductPage/ProductPage'
+import CartPage from './pages/CartPage/CartPage'
+import OrderPage from './pages/OrderPage/OrderPage'
+import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage'
+import ShippingPage from './pages/ShippingPage/ShippingPage'
+import PaymentPage from './pages/PaymentPage/PaymentPage'
+import ProductListPage from './pages/ProductListPage/ProductListPage'
+import ProductEditPage from './pages/ProductEditPage/ProductEditPage'
+import UserListPage from './pages/UserListPage/UserListPage'
+import UserEditPage from './pages/UserEditPage/UserEditPage'
+import OrderListPage from './pages/OrderListPage/OrderListPage'
 
 function App() {
   return (
@@ -33,21 +44,21 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
           </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/profile" element={<ProfilePage />} />
-            {/* <Route path="/order/:id" element={OrderPage} />
-            <Route path="/placeorder" element={PlaceOrderPage} />
-            <Route path="/shipping" element={ShippingPage} />
-            <Route path="/payment" element={PaymentPage} />
-            <Route path="/admin/productlist" element={<ProductListPage />} />
-            <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
-            <Route path="/admin/userlist" element={<UserListPage />} />
-            <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
-            <Route path="/admin/orderlist" element={<OrderListPage />} /> */}
-          </Route>
+          {/* <Route element={<ProtectedRoute />}> */}
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/order/:id" element={OrderPage} />
+          <Route path="/placeorder" element={PlaceOrderPage} />
+          <Route path="/shipping" element={ShippingPage} />
+          <Route path="/payment" element={PaymentPage} />
+          <Route path="/admin/productlist" element={<ProductListPage />} />
+          <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+          <Route path="/admin/userlist" element={<UserListPage />} />
+          <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+          <Route path="/admin/orderlist" element={<OrderListPage />} />
+          {/* </Route> */}
 
-          {/* <Route path="/cart/:id" element={<CartPage />} />
-          <Route path="/product/:id" element={ProductPage} /> */}
+          <Route path="/cart/:id" element={<CartPage />} />
+          <Route path="/product/:id" element={ProductPage} />
 
           <Route path="*" element={<Error />} />
         </Routes>

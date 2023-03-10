@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import myApi from './../../service/service'
 import { Navigate, useNavigate } from 'react-router-dom'
+import './RegisterPage.css'
 
 const RegisterPage = () => {
   const [{ username, password }, setFormData] = useState({
