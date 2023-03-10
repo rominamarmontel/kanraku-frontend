@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import myApi from '../../service/service'
+import myApi from '../../../service/service'
 // import ProductCard from '../../components/ProductCard/ProductCard'
 // import List from '../../components/List/List'
 
@@ -17,13 +17,12 @@ const ProductListPage = () => {
     return <div className="Loading">Loading!</div>
   }
 
-  return (
-    {
-      // products.map((product) => {
-      //   return <ProductCard key={product._id} product={...product} />
-      // })
-    }
-  )
+  // return (
+  //   // {
+  //   //   products.map((product) => {
+  //   //     return <ProductCard key={product._id} product={...product} />
+  //   //   })
+  //   // }
+  // )
 }
-
 export default ProductListPage
