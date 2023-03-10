@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const { storeToken, authenticateUser } = useContext(AuthContext)
@@ -13,7 +13,7 @@ const Login = () => {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const userToLogin = { username, password }
+    const userToLogin = { email, password }
 
     try {
       const response = await myApi.post('/auth/login', userToLogin)
@@ -28,13 +28,13 @@ const Login = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">
-          Username:&nbsp;
+        <label htmlFor="email">
+          Email:&nbsp;
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
       </div>
