@@ -8,7 +8,8 @@ const ProductPage = () => {
   const params = useParams()
 
   useEffect(() => {
-    const url = `/product/:${params._id}`
+    const url = `products/${params.id}`
+    console.log(url)
     myApi.get(url)
       .then((res) => setProduct(res.data))
       .catch((e) => console.error(e))
@@ -17,7 +18,13 @@ const ProductPage = () => {
   if (!product) {
     return <div className="Loading">Loading!</div>
   }
-  return <OneProductCard product={product} />
+  return (
+    <>
+      <h2>Product detail</h2>
+
+      <OneProductCard product={product} />
+    </>
+  )
 }
 
 export default ProductPage
