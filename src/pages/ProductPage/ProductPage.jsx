@@ -12,7 +12,7 @@ const ProductPage = () => {
     myApi.get(url)
       .then((res) => setProduct(res.data))
       .catch((e) => console.error(e))
-  }, [params])
+  }, [])
 
   if (!product) {
     return <div className="Loading">Loading!</div>
@@ -21,7 +21,7 @@ const ProductPage = () => {
     <>
       <h2>Product detail</h2>
 
-      <OneProductCard product={product} />
+      <OneProductCard key={product._id} product={product} />
     </>
   )
 }
