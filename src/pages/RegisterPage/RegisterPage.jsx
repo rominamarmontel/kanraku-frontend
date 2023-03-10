@@ -4,18 +4,13 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import './RegisterPage.css'
 
 const RegisterPage = () => {
-  const [{ username, password }, setFormData] = useState({
+  const [{ username, email, password }, setFormData] = useState({
     username: '',
+    email: '',
     password: '',
   })
   const [error, setError] = useState('')
   const navigate = useNavigate()
-
-  // const [count, setCount] = useState(0)
-  // setCount( count + 1)
-  // setCount((current) => current + 2)
-  // const [username, setUsername] = useState('')
-  // const [password, setPassword] = useState('')
 
   function handleChange(event) {
     const updatedState = {
@@ -25,15 +20,11 @@ const RegisterPage = () => {
       [event.target.id]: event.target.value,
     }
     setFormData(updatedState)
-    // setFormData((current) => ({
-    //   ...current,
-    //   [event.target.id]: event.target.value,
-    // }))
   }
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const userToCreate = { username, password }
+    const userToCreate = { username, email, password }
 
     try {
       const response = await myApi.post('/auth/signup', userToCreate)
@@ -81,7 +72,7 @@ const RegisterPage = () => {
           />
         </label>
       </div>
-      {/* &copy;This webise is &gt; > now clearly mine */}
+
       {error.length > 0 && <p className="error">{error}</p>}
       <button>Signup</button>
     </form>
