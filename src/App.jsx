@@ -41,15 +41,15 @@ function App() {
 
           <Route element={<IsLoggedOut />}>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/signup" element={<RegisterPage />} />
           </Route>
 
           {/* <Route element={<ProtectedRoute />}> */}
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/order/:id" element={OrderPage} />
-          <Route path="/placeorder" element={PlaceOrderPage} />
-          <Route path="/shipping" element={ShippingPage} />
-          <Route path="/payment" element={PaymentPage} />
+          <Route path="/order/:id" element={<OrderPage />} />
+          <Route path="/placeorder" element={<PlaceOrderPage />} />
+          <Route path="/shipping" element={<ShippingPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/admin/productlist" element={<ProductListPage />} />
           <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
           <Route path="/admin/userlist" element={<UserListPage />} />
@@ -58,7 +58,7 @@ function App() {
           {/* </Route> */}
 
           <Route path="/cart/:id" element={<CartPage />} />
-          <Route path="/product/:id" element={ProductPage} />
+          <Route path="/product/:id" element={<ProductPage />} />
 
           <Route path="*" element={<Error />} />
         </Routes>
