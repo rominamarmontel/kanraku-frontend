@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import myApi from '../../service/service'
 
 const ProfilePage = () => {
@@ -15,11 +15,11 @@ const ProfilePage = () => {
 
   useEffect(() => {
     myApi
-      .getOneUser(params._id)
+      .get(params._id)
       .then((res) => {
-        setUsername(res.data.OneUser.username)
-        setEmail(res.data.OneUser.email)
-        setPassword(res.data.OneUser.password)
+        setUsername(res.data.username)
+        setEmail(res.data.email)
+        setPassword(res.data.password)
         // setAddress(res.data.OneUser.address)
         // setCity(res.data.OneUser.city)
         // setPostalCode(res.data.OneUser.postalCode)

@@ -42,7 +42,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink to="/contact">Profile</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
               <button onClick={handleClick}>Logout</button>
             </>
           )}
