@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
@@ -8,9 +8,13 @@ import Search from '../Search/Search'
 
 const Navbar = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
+ const navigate = useNavigate()
+ 
   function handleClick() {
     removeToken()
     authenticateUser()
+    navigate('/')
+
   }
   const handleInputChange = (event) => {
     setSearchParams({ q: event.target.value })

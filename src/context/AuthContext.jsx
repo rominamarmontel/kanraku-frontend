@@ -24,7 +24,7 @@ const AuthContextWrapper = (props) => {
     try {
       const currentToken = getToken()
       setToken(currentToken)
-      if (!currentToken) return
+      if (!currentToken) return setUser(null)
 
       const response = await myApi.get('/auth/verify', {
         headers: {
