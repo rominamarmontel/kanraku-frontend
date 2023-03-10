@@ -8,7 +8,7 @@ const ProductPage = () => {
   const params = useParams()
 
   useEffect(() => {
-    const url = `/product/:${params._id}`
+    const url = `products/${params.id}`
     myApi.get(url)
       .then((res) => setProduct(res.data))
       .catch((e) => console.error(e))
