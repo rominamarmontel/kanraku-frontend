@@ -20,9 +20,6 @@ import OrderPage from "./pages/OrderPage/OrderPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage/PlaceOrderPage";
 import ShippingPage from "./pages/ShippingPage/ShippingPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
-// import ProductListPage from './pages/Admin/ProductListPage/ProductListPage'
-// import ProductEditPage from "./pages/Admin/ProductEditPage/ProductEditPage";
-import ProductCreateForm from "./pages/Admin/ProductCreateForm/ProductCreateForm";
 import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
@@ -55,9 +52,6 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrderPage />} />
           <Route path="/shipping" element={<ShippingPage />} />
           <Route path="/payment" element={<PaymentPage />} />
-          {/* <Route path="/admin/productlist" element={<ProductListPage />} /> */}
-          {/* <Route path="/admin/product/:id/edit" element={<ProductEditPage />} /> */}
-          <Route path="/admin/product/create" element={<ProductCreateForm />} />
           <Route path="/admin/userlist" element={<UserListPage />} />
           <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
           <Route path="/admin/orderlist" element={<OrderListPage />} />
