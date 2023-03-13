@@ -10,11 +10,11 @@ const ProductCard = (props) => {
       <div className='container'>
         <Link to={'/product/' + product._id} >
           <picture>
-            <img width={100} src={product.image} alt={product.name} />
+            <img width={150} src={product.image} alt={product.name} />
           </picture>
-          <p className='name'>{product.name}</p>
+          <p>{product.name}</p>
         </Link>
-        <p className='price'><span>price:</span>{product.price} €</p>
+        <p><span>price:</span>{product.price} €</p>
       </div>
     </div >
   )

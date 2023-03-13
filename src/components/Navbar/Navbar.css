@@ -1,14 +1,9 @@
-.Navbar {
+
+.Navbar nav {
   margin: 0;
   padding: 0;
   background-color: aqua;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
-.Navbar ul {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem
-}
-
