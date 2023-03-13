@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout/Layout";
@@ -24,38 +23,8 @@ import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
-<<<<<<< Updated upstream
 import ProductCreatePage from './pages/Admin/ProductCreatePage/ProductCreatePage'
-=======
-=======
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Layout from './pages/Layout/Layout'
-import Home from './pages/Home/Home'
-import Store from './pages/Store/Store'
-import About from './pages/About/About'
-import Contact from './pages/Contact/Contact'
-import Login from './pages/Login/Login'
-import Signup from './pages/Signup/Signup'
-import ProtectedRoute from './pages/Navigation/ProtectedRoute'
-import IsLoggedOut from './pages/Navigation/IsLoggedOut'
-import ProfilePage from './pages/ProfilePage/ProfilePage'
-import FormEditProfile from './pages/ProfilePage/Forms/FormEditProfile'
-import FormEditAddress from './pages/ProfilePage/Forms/FormEditAddress'
-import FormAddAddress from './pages/ProfilePage/Forms/FormAddAddress'
-import Error from './pages/Error/Error'
-import DetailedProductPage from './pages/DetailedProductPage/DetailedProductPage'
-import CartPage from './pages/CartPage/CartPage'
-import OrderPage from './pages/OrderPage/OrderPage'
-import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage'
-import ShippingPage from './pages/ShippingPage/ShippingPage'
-import PaymentPage from './pages/PaymentPage/PaymentPage'
-import UserListPage from './pages/Admin/UserListPage/UserListPage'
-import UserEditPage from './pages/Admin/UserEditPage/UserEditPage'
-import OrderListPage from './pages/Admin/OrderListPage/OrderListPage'
 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 function App() {
   return (
