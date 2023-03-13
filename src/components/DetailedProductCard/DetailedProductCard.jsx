@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import './DetailedProductCard.css'
 import myApi from '../../service/service'
 import { AuthContext } from '../../context/AuthContext'
-import Upload from '../Upload/Upload'
+// import Upload from '../Upload/Upload'
 
 const DetailedProductCard = (props) => {
   const [editIsOn, setEditIsOn] = useState(false)
@@ -156,7 +156,7 @@ const DetailedProductCard = (props) => {
                       <div>
                         <label htmlFor="edit-image">Image:</label>
                         <div>
-                          <Upload />
+                          {/* <Upload /> */}
                         </div>
                         <label htmlFor="edit-description">Description:</label>
                         <div>

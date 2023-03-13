@@ -37,7 +37,7 @@ const Store = () => {
               <h5>OUR SELECTION</h5>
             </div>
             <div className="SearchAndCreate">
-              {true && <Link to={'/admin/product/create'} className='btn-create'>Create</Link>}
+              {true && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>}
               {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
               <Search handleInputChange={handleInputChange} />
             </div>

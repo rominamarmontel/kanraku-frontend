@@ -3,7 +3,7 @@ import Confetti from 'react-confetti'
 import './ProductCreatePage.css'
 import myApi from '../../../service/service'
 import { Link } from 'react-router-dom'
-import Upload from '../../../components/Upload/Upload'
+// import Upload from '../../../components/Upload/Upload'
 
 const ProductCreatePage = () => {
   const [name, setName] = useState('')
@@ -112,7 +112,7 @@ const ProductCreatePage = () => {
               <div>
                 <label htmlFor="edit-image">Image:</label>
                 <div>
-                  <Upload />
+                  {/* <Upload /> */}
                 </div>
                 <label htmlFor="description">Description: </label>
                 <div>
