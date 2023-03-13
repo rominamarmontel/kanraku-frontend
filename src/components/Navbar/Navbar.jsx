@@ -19,10 +19,9 @@ const Navbar = () => {
   };
   return (
     <div className='Navbar'>
-      <div className='home-logo'>
+
         <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
-      </div>
-      <nav>
+
         <NavLink to="/">HOME</NavLink>
         <NavLink to="/store">STORE</NavLink>
         <NavLink to="/about">ABOUT</NavLink>
@@ -38,7 +37,7 @@ const Navbar = () => {
             <button onClick={handleClick}>LOGOUT</button>
           </>
         )}
-      </nav>
+
     </div>
   )
 }

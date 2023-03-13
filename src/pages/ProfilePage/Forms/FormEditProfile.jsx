@@ -43,7 +43,7 @@ const EditInformation = () => {
 
       if (response.ok) {
         setMessage('Changes saved successfully')
-        navigate('/prodile')
+        navigate('/profile')
       } else {
         setMessage('Failed to save changes')
       }
