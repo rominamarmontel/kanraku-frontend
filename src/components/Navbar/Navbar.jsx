@@ -23,32 +23,21 @@ const Navbar = () => {
         <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
       </div>
       <nav>
-        <ul>
-          <li>
-            <NavLink to="/store">STORE</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">ABOUT</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">CONTACT</NavLink>
-          </li>
-          {!user ? (
-            <>
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li>
-                <NavLink to="/signup">Signup</NavLink>
-              </li>
-            </>
-          ) : (
-            <>
-              <NavLink to="/profile">Profile</NavLink>
-              <button onClick={handleClick}>Logout</button>
-            </>
-          )}
-        </ul>
+        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/store">STORE</NavLink>
+        <NavLink to="/about">ABOUT</NavLink>
+        <NavLink to="/contact">CONTACT</NavLink>
+        {!user ? (
+          <>
+            <NavLink to="/login">LOGIN</NavLink>
+            <NavLink to="/signup">SIGNUP</NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink to="/profile">PROFILE</NavLink>
+            <button onClick={handleClick}>LOGOUT</button>
+          </>
+        )}
       </nav>
     </div>
   )

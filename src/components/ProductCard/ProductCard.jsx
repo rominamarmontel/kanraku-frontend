@@ -9,9 +9,9 @@ const ProductCard = (props) => {
       <div className='container'>
         <Link to={`/products/${product._id}`} >
           <picture>
-            <img src={product.image} alt={product.name} />
+            <img width={150} src={product.image} alt={product.name} />
           </picture>
-          <p className='name'>{product.name}</p>
+          <p>{product.name}</p>
         </Link>
         <p className='price'>{product.price} €</p>
       </div>

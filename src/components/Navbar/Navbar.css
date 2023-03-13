@@ -1,5 +1,9 @@
 .Navbar {
   margin: 1rem 0 2rem 0;
+}
+
+.Navbar nav {
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: row;
