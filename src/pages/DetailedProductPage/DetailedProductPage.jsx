@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import OneProductCard from '../../components/OneProductCard/OneProductCard'
+import DetailedProductCard from '../../components/DetailedProductCard/DetailedProductCard'
 import myApi from '../../service/service';
 
 const DetailedProductPage = () => {
@@ -20,7 +20,7 @@ const DetailedProductPage = () => {
   }
   return (
     <>
-      <OneProductCard key={product._id} product={product} />
+      <DetailedProductCard key={product._id} product={product} />
     </>
   )
 }

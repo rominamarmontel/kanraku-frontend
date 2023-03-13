@@ -23,6 +23,7 @@ import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
+import ProductCreatePage from './pages/Admin/ProductCreatePage/ProductCreatePage'
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/admin/userlist" element={<UserListPage />} />
           <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
           <Route path="/admin/orderlist" element={<OrderListPage />} />
+          <Route path="/admin/product/create" element={<ProductCreatePage />} />
           <Route path="/cart" element={<CartPage />} />
           {/* </Route> */}
           <Route path="/products/:id" element={<DetailedProductPage />} />
