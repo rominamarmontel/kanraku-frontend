@@ -86,20 +86,9 @@ const DetailedProductCard = (props) => {
   return (
     <>
       {/* User page */}
-      <div className='first'>
-        <div className='direction'>
-          <Link to={'/'} >Home</Link><p> / </p><Link to={'/store'} > Store</Link><p> / Product</p>
-        </div>
-      </div>
 
       <div className="OneProductCard">
-        <div className='container'>
-          <div>
-            <h2>{product.name}</h2>
-            <h5>{product.category}</h5>
-          </div>
-
-
+        <div className='buttons'>
           {/* {user && user.isAdmin && <button
             className='btn-block'
             type='button'
@@ -116,7 +105,13 @@ const DetailedProductCard = (props) => {
             className='btn-admin'
             type='button'
             onClick={deleteHandler}> Delete</button>}
-
+        </div>
+          
+          <div className='container'>
+            <div>
+              <h2>{product.name}</h2>
+              <h5>{product.category}</h5>
+            </div>
 
           {editIsOn ?
             <>
@@ -182,6 +177,9 @@ const DetailedProductCard = (props) => {
                 <picture>
                   <img src={product.image} alt={product.name} />
                 </picture>
+                <div className='description'>
+                    <p>{product.description}</p>
+                  </div>
                 <div>
                   <table>
                     <tbody>
@@ -211,9 +209,7 @@ const DetailedProductCard = (props) => {
                       disabled={product.countInStock === 0}
                     >Add To Cart</button>
                   </div>
-                  <div className='description'>
-                    <p>{product.description}</p>
-                  </div>
+
                 </div>
               </div>
             </>
