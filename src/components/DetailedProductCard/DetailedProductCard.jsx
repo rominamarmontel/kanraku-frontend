@@ -86,12 +86,6 @@ const DetailedProductCard = (props) => {
   return (
     <>
       {/* User page */}
-      <div className='first'>
-        <div className='direction'>
-          <Link to={'/'} >Home</Link><p> / </p><Link to={'/store'} > Store</Link><p> / Product</p>
-        </div>
-      </div>
-
       <div className="OneProductCard">
         <div className='container'>
           <div>

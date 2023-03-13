@@ -5,12 +5,6 @@ import { Link } from 'react-router-dom'
 const Contact = () => {
   return (
     <>
-      <div className='first'>
-        <div className='direction'>
-          <Link to={`/`} >Home</Link><p> / Contact</p>
-        </div>
-      </div>
-
       <div className='Contact'>
         <div className='container'>
           <div className='title'>

@@ -1,20 +1,3 @@
-.first {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-}
-.direction {
-  display: flex;
-  flex-direction: row;
-}
-.direction a {
-  color: gray;
-  font-family: Poppins;
-  font-weight: normal;
-}
-
 .Store {
   margin: 0;
   padding: 0;
@@ -46,4 +29,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: .5rem;
+}
+.SearchAndCreate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -29,13 +29,6 @@ const Store = () => {
 
   return (
     <>
-      <div className="first">
-        <div className="direction">
-          <Link to={`/`}>Home</Link>
-          <p> / Store</p>
-        </div>
-      </div>
-
       <div className="Store">
         <div className="container">
           <div className="title">
@@ -43,9 +36,11 @@ const Store = () => {
               <h2>STORE</h2>
               <h5>OUR SELECTION</h5>
             </div>
-            {true && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>}
-            {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
-            <Search handleInputChange={handleInputChange} />
+            <div className="SearchAndCreate">
+              {true && <Link to={'/admin/product/create'} className='btn-create'>Create</Link>}
+              {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
+              <Search handleInputChange={handleInputChange} />
+            </div>
           </div>
           <div className="productCard">
             {products.map((product) => {

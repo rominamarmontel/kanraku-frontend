@@ -5,12 +5,6 @@ import { Link } from 'react-router-dom'
 const About = () => {
   return (
     <>
-      <div className='first'>
-        <div className='direction'>
-          <Link to={`/`} >Home</Link><p> / About</p>
-        </div>
-      </div>
-
       <div className='About'>
         <div className='container'>
           <div className='title'>

@@ -56,7 +56,11 @@ function App() {
           <Route path="/admin/userlist" element={<UserListPage />} />
           <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
           <Route path="/admin/orderlist" element={<OrderListPage />} />
+<<<<<<< Updated upstream
           <Route path="/admin/product/create" element={<ProductCreatePage />} />
+=======
+          <Route path="/admin/products/create" element={<ProductCreatePage />} />
+>>>>>>> Stashed changes
           <Route path="/cart" element={<CartPage />} />
           {/* </Route> */}
           <Route path="/products/:id" element={<DetailedProductPage />} />
