@@ -5,8 +5,8 @@ import Home from './pages/Home/Home'
 import Store from './pages/Store/Store'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
-import LoginPage from './pages/Login/Login'
-import RegisterPage from './pages/RegisterPage/RegisterPage'
+import Login from './pages/Login/Login'
+import Signup from './pages/Signup/Signup'
 import ProtectedRoute from './pages/Navigation/ProtectedRoute'
 import IsLoggedOut from './pages/Navigation/IsLoggedOut'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
@@ -14,8 +14,7 @@ import FormEditProfile from './pages/ProfilePage/Forms/FormEditProfile'
 import FormEditAddress from './pages/ProfilePage/Forms/FormEditAddress'
 import FormAddAddress from './pages/ProfilePage/Forms/FormAddAddress'
 import Error from './pages/Error/Error'
-import Navbar from './components/Navbar/Navbar'
-import ProductPage from './pages/ProductPage/ProductPage'
+import DetailedProductPage from './pages/DetailedProductPage/DetailedProductPage'
 import CartPage from './pages/CartPage/CartPage'
 import OrderPage from './pages/OrderPage/OrderPage'
 import PlaceOrderPage from './pages/PlaceOrderPage/PlaceOrderPage'
@@ -32,12 +31,8 @@ import OrderListPage from './pages/Admin/OrderListPage/OrderListPage'
 function App() {
   return (
     <div className="App">
-      <header>
-        <Navbar />
-      </header>
-      <main>
-
-        <Routes>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
           <Route path="/about" element={<About />} />
@@ -45,8 +40,8 @@ function App() {
           <Route path="/search/:keyword" element={<Store />} />
 
           <Route element={<IsLoggedOut />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<RegisterPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Route>
 
           {/* <Route element={<ProtectedRoute />}> */}
@@ -66,12 +61,10 @@ function App() {
           <Route path="/admin/orderlist" element={<OrderListPage />} />
           <Route path="/cart" element={<CartPage />} />
           {/* </Route> */}
-
-          <Route path="/product/:id" element={<ProductPage />} />
-
+          <Route path="/products/:id" element={<DetailedProductPage />} />
           <Route path="*" element={<Error />} />
-        </Routes>
-      </main>
+        </Route>
+      </Routes>
     </div>
   )
 }

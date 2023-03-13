@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import myApi from './../../service/service'
 import { AuthContext } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import './Login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -26,33 +27,39 @@ const Login = () => {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">
-          Email:&nbsp;
-          <input
-            type="text"
-            id="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:&nbsp;
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      {/* &copy;This webise is &gt; > now clearly mine */}
-      {error.length > 0 && <p className="error">{error}</p>}
-      <button>Login</button>
-    </form>
+    <section id='Login'>
+      <form onSubmit={handleSubmit}>
+        <div className='Login'>
+          <p>Login</p>
+          <div className='email'>
+            <label htmlFor="email">
+              Email:&nbsp;
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+            </label>
+          </div>
+          <div className='password'>
+            <label htmlFor="password">
+              Password:&nbsp;
+              <input
+                type="password"
+                id="password" autoComplete="on"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </label>
+          </div>
+          <div className='btn-login'>
+            {error.length > 0 && <p className="error">{error}</p>}
+            <button>Login</button>
+          </div>
+        </div>
+      </form>
+    </section>
   )
 }
 
