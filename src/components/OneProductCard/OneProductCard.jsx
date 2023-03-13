@@ -25,55 +25,60 @@ const OneProductCard = (props) => {
   }
 
   return (
+
     <div className="OneProductCard">
-      {/* {user && user.isAdmin && <button
-        className='btn-block'
-        type='button'
-        onClick={() => setEditIsOn(!editIsOn)}> Edit</button>} */}
-      {true && <button
-        className='btn-block'
-        type='button'
-        onClick={() => setEditIsOn(!editIsOn)}> Edit</button>}
-      {user && user.isAdmin && <button
-        className='btn-block'
-        type='button'
-        onClick={() => setDeleteIsOn(!deleteIsOn)}> Delete</button>}
-      {true && <button
-        className='btn-block'
-        type='button'
-        onClick={() => setDeleteIsOn(!deleteIsOn)}> Delete</button>}
+      <div className='buttons'>
+        {/* {user && user.isAdmin && <button
+          className='btn-block'
+          type='button'
+          onClick={() => setEditIsOn(!editIsOn)}> Edit</button>} */}
+        {true && <button
+          className='btn-block'
+          type='button'
+          onClick={() => setEditIsOn(!editIsOn)}> Edit</button>}
+        {/* {user && user.isAdmin && <button
+          className='btn-block'
+          type='button'
+          onClick={() => setDeleteIsOn(!deleteIsOn)}> Delete</button>} */}
+        {true && <button
+          className='btn-block'
+          type='button'
+          onClick={() => setDeleteIsOn(!deleteIsOn)}> Delete</button>}
+      </div>
+    
       <div className='container'>
-
-        <picture>
-          <img width={100} src={product.image} alt={product.name} />
-        </picture>
-        {editIsOn && <input type="file" />}
-        {/* {true && <input type="file" />} */}
         <div className='product-details'>
-          <h2 className='name'>
-            {product.name}
-          </h2>
+            <h2 className='name'>{product.name}</h2>
+
+          <picture>
+            <img src={product.image} alt={product.name} />
+          </picture>
+
+          {editIsOn && <input type="file" />}
+          {/* {true && <input type="file" />} */}
+ 
+
+          {editIsOn ?
+            <input type="text" name="brand" value={product.brand} />
+            :
+            <>
+              <p>{product.brand}</p>
+              <p>{product.category}</p>
+              <p>{product.description}</p>
+              <p>{product.price} €</p>
+              <p> {product.countInStock > 0 ? `In Stock: ${product.countInStock}` : 'Out Of Stock'}</p>
+              <input type="number" name="quantity" min="0" max={product.countInStock} value={quantity} onChange={({ target }) => setQuantity(Number(target.value))} />
+
+              <button
+                onClick={addToCartHandler}
+                className='btn-block'
+                type='button'
+                disabled={product.countInStock === 0} >
+                  Add To Cart
+                  </button>
+            </>
+          }
         </div>
-        {editIsOn ?
-          <input type="text" name="brand" value={product.brand} />
-          :
-          <>
-            <p className='brand'>{product.brand}</p>
-            <p className='category'>{product.category}</p>
-            <p className='description'>{product.description}</p>
-            <p className='price'>{product.price} €</p>
-            <p className='countInStock'> {product.countInStock > 0 ? `In Stock: ${product.countInStock}` : 'Out Of Stock'}</p>
-            <input type="number" name="quantity" min="0" max={product.countInStock} value={quantity} onChange={({ target }) => setQuantity(Number(target.value))} />
-            <button
-              onClick={addToCartHandler}
-              className='btn-block'
-              type='button'
-              disabled={product.countInStock === 0}
-            >Add To Cart</button>
-          </>
-        }
-
-
       </div>
     </div >
   )

@@ -1,0 +1,14 @@
+.Store {
+  margin: 2rem;
+}
+
+.StoreContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 2rem;
+}
+
+.StoreContainer img {
+  aspect-ratio: 4/4;
+}

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import Search from '../../components/Search/Search';
 import myApi from '../../service/service';
 import './Store.css'
+
 
 const Store = () => {
   const [products, setProducts] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const q = searchParams.get('q')
+  const isAdmin = true; 
 
   useEffect(() => {
     const url = q ? `/products/search?q=${q}` : `/products`
@@ -29,10 +31,17 @@ const Store = () => {
     <div className='Store'>
       <Search handleInputChange={handleInputChange} />
 
-      <h1>Store</h1>
+      {isAdmin && (
+        <Link to="/product/create">
+          <button>Create Product</button>
+        </Link>
+      )}
+
+      <div className='StoreContainer'>
       {products.map((product) => {
         return <ProductCard key={product._id} product={product} />
       })}
+      </div>
     </div>
   )
 }

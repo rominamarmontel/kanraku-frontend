@@ -1,0 +1,14 @@
+.OneProductCard .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.OneProductCard h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.OneProductCard img {
+  width : 50rem;
+}

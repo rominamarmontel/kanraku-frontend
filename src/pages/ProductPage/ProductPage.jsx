@@ -19,8 +19,8 @@ const ProductPage = () => {
   }
   return (
     <>
-      <h2>Product detail</h2>
 
+    
       <OneProductCard key={product._id} product={product} />
     </>
   )

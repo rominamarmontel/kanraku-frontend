@@ -1,79 +1,76 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthContext';
+import './FormEditProfile.css'
+import myApi from '../../../service/service'
 
-const FormEditProfile = () => {
 
-  const [username, setUsername] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
-  const [address, setAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [postalCode, setPostalCode] = useState('')
-  const [country, setCountry] = useState('')
-  const params = useParams()
-  const navigate = useNavigate()
+const EditInformation = () => {
+  const { user, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
-  useEffect(() => {
-    myApi
-      .get(params._id)
-      .then((res) => {
-        setUsername(res.data.username)
-        setEmail(res.data.email)
-        setPassword(res.data.password)
-        // setAddress(res.data.OneUser.address)
-        // setCity(res.data.OneUser.city)
-        // setPostalCode(res.data.OneUser.postalCode)
-        // setCountry(res.data.OneUser.country)
-      })
-      .catch((e) => console.error(e))
-  }, [])
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
+  }
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
+  }
+
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value)
+  // }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const userToUpdate = { username, email, password }
+
+    const changes = { username, email, /* password */ }
+
     try {
-      const editUser = await myApi.updateUser(params._id, userToUpdate)
-      if (editUser.status === 202) {
-        navigate('/profile')
+      const response = await 
+      myApi.patch('/user/edit', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(changes)
+
+      })
+
+      if (response.ok) {
+        setMessage('Changes saved successfully')
+        navigate('/prodile')
+      } else {
+        setMessage('Failed to save changes')
       }
-      console.log(editUser)
     } catch (error) {
-      console.error(error)
+      console.log(error)
+      setMessage('An error occurred while saving changes')
     }
   }
 
-  
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Name:</label>
-      <div>
-        <input
-          value={username}
-          name="username"
-          id="username"
-          onChange={(event) => setUsername(event.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="email">Email: </label>
-        <input
-          value={email}
-          name="email"
-          id="email"
-          onChange={(event) => setEmail(event.target.value)}
-        ></input>
-      </div>
-      <div>
-        <label htmlFor="password">Password: </label>
-        <input
-          value={password}
-          name="password"
-          id="password"
-          onChange={(event) => setPassword(event.target.value)}
-        ></input>
-      </div>
-      <button>Update your profile</button>
-    </form>
+    <div className='FormEditProfile'>
+      <h2>Edit Informations</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='username'>New Username:</label>
+          <input type="text" value={username} name='username' id='username' onChange={handleUsernameChange} placeholder='new useranme'/>
+
+        <label htmlFor='email'>New Email:</label>
+          <input type="text" value={email} name='email' id='email' onChange={handleEmailChange} placeholder='new email'/>
+
+        {/* <label htmlFor='password'>New Password:</label>
+          <input type="password" value={password} name='password' id='password' onChange={handlePasswordChange} placeholder='new password'/> */}
+
+        <button>Save Changes</button>
+      </form>
+      <div>{message}</div>
+    </div>
   )
 }
 
-export default FormEditProfile
+export default EditInformation
