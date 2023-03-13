@@ -6,10 +6,11 @@ import myApi from '../../../service/service'
 
 
 const EditInformation = () => {
-  const { user, updateUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
+  console.log(user)
+  const [username, setUsername] = useState(user.username)
+  const [email, setEmail] = useState(user.email)
   // const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
 
@@ -31,22 +32,13 @@ const EditInformation = () => {
 
     const changes = { username, email, /* password */ }
 
+   
     try {
-      const response = await 
-      myApi.patch('/user/edit', {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(changes)
-
-      })
-
-      if (response.ok) {
-        setMessage('Changes saved successfully')
-        navigate('/profile')
-      } else {
-        setMessage('Failed to save changes')
-      }
+      const response = await myApi.patch('/user/edit', changes)
+      //console.log(response)
+      setUser(response.data)
+      navigate('/profile')
+    
     } catch (error) {
       console.log(error)
       setMessage('An error occurred while saving changes')
