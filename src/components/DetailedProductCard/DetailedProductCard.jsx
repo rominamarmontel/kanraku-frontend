@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
-import './OneProductCard.css'
+import './DetailedProductCard.css'
 import myApi from '../../service/service'
 import { AuthContext } from '../../context/AuthContext'
-import './OneProductCard.css'
 import Upload from '../Upload/Upload'
 
-const OneProductCard = (props) => {
+const DetailedProductCard = (props) => {
   const [editIsOn, setEditIsOn] = useState(false)
   const [deleteIsOn, setDeleteIsOn] = useState(false)
   const [name, setName] = useState('')
@@ -16,12 +15,12 @@ const OneProductCard = (props) => {
   const [price, setPrice] = useState(0)
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
-
   const [quantity, setQuantity] = useState(0);
   const { user } = useContext(AuthContext)
-  const product = props.product.oneProduct
+  const [product, setProduct] = useState({})
   const navigate = useNavigate()
   const params = useParams()
+  const productId = params.id
 
   //Click a Cart button
   const addToCartHandler = async () => {
@@ -29,14 +28,15 @@ const OneProductCard = (props) => {
     if (quantity > product.countInStock) {
       return setQuantity(0)
     }
-    await myApi.post(`/products/${product._id}`, { quantity })
+    await myApi.post(`/products/${productId}`, { quantity })
   }
 
   useEffect(() => {
-    const url = `/products/${product._id}`
+    const url = `/products/${productId}`
     myApi
-      .get(url, params._id)
+      .get(url)
       .then((res) => {
+        setProduct(res.data.oneProduct)
         setName(res.data.oneProduct.name)
         setImage(res.data.oneProduct.image)
         setBrand(res.data.oneProduct.brand)
@@ -53,9 +53,17 @@ const OneProductCard = (props) => {
     event.preventDefault()
     setEditIsOn(!editIsOn)
     const productToUpdate = { name, brand, category, image, price, countInStock, description }
-    const url = `/products/${product._id}`
+    const url = `/products/${productId}`
     try {
-      const editedProduct = await myApi.patch(url, productToUpdate)
+      const res = await myApi.patch(url, productToUpdate)
+      setProduct(res.data)
+      setName(res.data.name)
+      setImage(res.data.image)
+      setBrand(res.data.brand)
+      setCategory(res.data.category)
+      setPrice(res.data.price)
+      setCountInStock(res.data.countInStock)
+      setDescription(res.data.description)
     } catch (error) {
       console.error(error)
     }
@@ -65,7 +73,7 @@ const OneProductCard = (props) => {
   const deleteHandler = async (event) => {
     event.preventDefault
     setDeleteIsOn(!deleteIsOn)
-    const url = `/products/${product._id}/`
+    const url = `/products/${productId}/`
     try {
       await myApi.delete(url)
       setDeleteIsOn(!deleteIsOn)
@@ -108,8 +116,6 @@ const OneProductCard = (props) => {
             className='btn-admin'
             type='button'
             onClick={deleteHandler}> Delete</button>}
-          {true && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>}
-          {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
 
 
           {editIsOn ?
@@ -218,4 +224,4 @@ const OneProductCard = (props) => {
   )
 }
 
-export default OneProductCard
+export default DetailedProductCard

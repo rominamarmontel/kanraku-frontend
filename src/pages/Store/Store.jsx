@@ -43,6 +43,8 @@ const Store = () => {
               <h2>STORE</h2>
               <h5>OUR SELECTION</h5>
             </div>
+            {true && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>}
+            {/* {user && user.isAdmin && <Link to={'/admin/products/create'} className='btn-create'>Create</Link>} */}
             <Search handleInputChange={handleInputChange} />
           </div>
           <div className="productCard">

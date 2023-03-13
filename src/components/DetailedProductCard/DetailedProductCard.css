@@ -14,98 +14,98 @@
   font-family: Poppins;
   font-weight: normal;
 }
-/* OneProductCard */
-.OneProductCard {
+/*.DetailedProductCard */
+.DetailedProductCard {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
   width: 100%;
   height: calc(100vh - 180px);
 }
-.OneProductCard .container {
+.DetailedProductCard .container {
   width: 90%;
   margin: 0 auto;
 }
-.OneProductCard .product-details {
+.DetailedProductCard .product-details {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 5rem;
 }
-.OneProductCard h2 {
+.DetailedProductCard h2 {
   text-align: right;
 }
-.OneProductCard h5 {
+.DetailedProductCard h5 {
   font-family: 'Lora&display';
   font-weight: bold;
   font-size: 1.5rem;
   text-align: right;
 }
-.OneProductCard .btn-admin {
+.DetailedProductCard .btn-admin {
   margin-bottom: 2rem;
   margin-right: 1rem;
   background-color: black;
 }
-.OneProductCard .btn-admin:hover {
+.DetailedProductCard .btn-admin:hover {
   background-color: gray;
   border-color: gray;
 }
-.OneProductCard .btn-create {
+.DetailedProductCard .btn-create {
   background-color: gray;
   color: #fff;
   border-radius: 5px;
   padding: .5rem;
 }
-.OneProductCard .btn-create:hover {
+.DetailedProductCard .btn-create:hover {
   background-color: black;
 }
-.OneProductCard .product-details picture {
+.DetailedProductCard .product-details picture {
   width: 100%;
   background-color: antiquewhite;
   display: flex;
   justify-content: flex-end;
 }
-.OneProductCard .product-details img {
+.DetailedProductCard .product-details img {
   display: block;
   width: 100%;
   height: 350px;
   object-fit: cover;
 }
-.OneProductCard .product-info {
+.DetailedProductCard .product-info {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   justify-content: right;
 }
-.OneProductCard td {
+.DetailedProductCard td {
   width: 20rem;
   text-align: right;
 }
-.OneProductCard tr, .OneProductCard .countInStock, .OneProductCard .brand {
+.DetailedProductCard tr, .DetailedProductCard .countInStock, .DetailedProductCard .brand {
   font-size: 1rem;
   font-weight: 300;
 }
-.OneProductCard td:nth-child(2) {
+.DetailedProductCard td:nth-child(2) {
   font-size: 1.2rem;
 }
-.OneProductCard input {
+.DetailedProductCard input {
   border: none;
   font-size: 1.2rem;
 }
-.OneProductCard td .price {
+.DetailedProductCard td .price {
   font-size: 2rem;
   color: gray;
 }
-.OneProductCard .description {
+.DetailedProductCard .description {
   border-top: 1px solid black;
   padding-top: 1rem;
   padding-bottom: 3rem;
 }
-.OneProductCard .description p {
+.DetailedProductCard .description p {
   font-size: .8rem;
   font-weight: 300;
 }
-.OneProductCard .add-btn {
+.DetailedProductCard .add-btn {
   display: flex;
   justify-content: flex-end;
   margin: 1rem 0 ;
