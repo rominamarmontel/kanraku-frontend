@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import './Upload.css'
-export default class FilesUploadComponent extends Component {
-  const[imageFile, setImageFile] = useState('');
-  const[imageURL, setImageURL] = useState('');
+import React from 'react'
+
+const Upload = () => {
+  const [imageFile, setImageFile] = useState('');
+  const [imageURL, setImageURL] = useState('');
 
 
   console.log(imageFile);
@@ -27,3 +27,5 @@ return <div>
   <img src={imageURL} alt="" />
 </div>;
 }
+
+export default Upload
