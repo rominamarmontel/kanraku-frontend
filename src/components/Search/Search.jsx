@@ -4,16 +4,14 @@ import './Search.css'
 function Search({ handleInputChange, searchKeyword }) {
   return (
     <>
-      <div>
-        <div className='Search-box'>
-          <label htmlFor="search-keyword">Search</label>
-          <input
-            id="search-keyword"
-            value={searchKeyword}
-            type="text"
-            onChange={handleInputChange}
-          />
-        </div>
+      <div className='Search'>
+        <input
+          id="search-keyword"
+          value={searchKeyword}
+          type="text"
+          placeholder='Search'
+          onChange={handleInputChange}
+        />
       </div>
     </>
   );

@@ -1,0 +1,45 @@
+.first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.direction {
+  display: flex;
+  flex-direction: row;
+}
+.direction a {
+  color: gray;
+  font-family: Poppins;
+  font-weight: normal;
+}
+
+.Contact {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: calc(100vh - 180px);
+}
+.Contact .container {
+  width: 90%;
+  margin: 0 auto;
+}
+/* .Contact .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+.Contact h2 {
+  margin: 0 5rem;
+}
+.Contact h5 {
+  margin: 0 5rem 0 5rem;
+  font-family: 'Lora&display';
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.Contact p {
+  margin: 0 5rem;
+}

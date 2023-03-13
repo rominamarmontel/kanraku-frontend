@@ -6,8 +6,8 @@ import { AuthContext } from '../../context/AuthContext'
 
 const Navbar = () => {
   const { user, authenticateUser, removeToken } = useContext(AuthContext)
- const navigate = useNavigate()
- 
+  const navigate = useNavigate()
+
   function handleClick() {
     removeToken()
     authenticateUser()
@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
       <div className='home-logo'>
-        <NavLink to="/">HOME</NavLink>
+        <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
       </div>
       <nav>
         <ul>

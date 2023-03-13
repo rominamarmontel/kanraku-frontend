@@ -1,0 +1,49 @@
+.first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.direction {
+  display: flex;
+  flex-direction: row;
+}
+.direction a {
+  color: gray;
+  font-family: Poppins;
+  font-weight: normal;
+}
+
+.Store {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: calc(100vh - 180px);
+}
+.Store .container {
+  width: 90%;
+  margin: 0 auto;
+}
+.Store .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Store h2 {
+  margin: 0 5rem;
+}
+.Store h5 {
+  margin: 0 5rem 0 5rem;
+  font-family: 'Lora&display';
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.productCard {
+  margin: 0 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
