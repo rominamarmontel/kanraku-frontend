@@ -28,3 +28,10 @@
   font-size: 1.5rem;
   color: rgb(92, 91, 91);
 }
+.Login h4 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.Login a {
+  color: rgb(2, 172, 218);
+}

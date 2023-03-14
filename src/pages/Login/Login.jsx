@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import myApi from './../../service/service'
 import { AuthContext } from '../../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Login.css'
 
 const Login = () => {
@@ -57,12 +57,12 @@ const Login = () => {
             {error.length > 0 && <p className="error">{error}</p>}
             <button>Login</button>
           </div>
+          <div><h4>You don't have an account yet? </h4>
+            <h4>Create your account <Link to='/Signup'> HERE</Link> !!</h4></div>
         </div>
       </form>
     </section>
   )
 }
-
-
 
 export default Login
