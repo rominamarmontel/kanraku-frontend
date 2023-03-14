@@ -6,12 +6,10 @@ import myApi from '../../../service/service'
 
 
 const EditInformation = () => {
-  const { user, setUser } = useContext(AuthContext);
-  const navigate = useNavigate();
-  console.log(user)
+  const { user, setUser } = useContext(AuthContext)
+  const navigate = useNavigate()
   const [username, setUsername] = useState(user.username)
   const [email, setEmail] = useState(user.email)
-  // const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
 
 
@@ -22,10 +20,6 @@ const EditInformation = () => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
   }
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value)
-  // }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -54,9 +48,6 @@ const EditInformation = () => {
 
         <label htmlFor='email'>New Email:</label>
           <input type="text" value={email} name='email' id='email' onChange={handleEmailChange} placeholder='new email'/>
-
-        {/* <label htmlFor='password'>New Password:</label>
-          <input type="password" value={password} name='password' id='password' onChange={handlePasswordChange} placeholder='new password'/> */}
 
         <button>Save Changes</button>
       </form>

@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthContext';
 import './FormEditAddress.css'
 import myApi from '../../../service/service'
 
 const EditAddress = () => {
-  const [address, setAddress] = useState('')
-  const [postalCode, setPostalCode] = useState('')
-  const [city, setCity] = useState('')
-  const [country, setCountry] = useState('')
+  const { user, setUser } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const [address, setAddress] = useState(user.shippingAddress.address)
+  const [postalCode, setPostalCode] = useState(user.shippingAddress.postalCode)
+  const [city, setCity] = useState(user.shippingAddress.city)
+  const [country, setCountry] = useState(user.shippingAddress.country)
   const [message, setMessage] = useState('')
 
   const handleAddressChange = (event) => {
@@ -28,27 +32,22 @@ const EditAddress = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const changes = {
-      address,
-      postalCode,
-      city,
-      country
+    const editedAddress = {
+      shippingAddress : {
+        address,
+        postalCode,
+        city,
+        country
+      }
+
     }
 
     try {
-      const response = await 
-      myApi.patch('/user/edit', {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(changes)
-      })
-
-      if (response.ok) {
-        setMessage('Changes saved successfully')
-      } else {
-        setMessage('Failed to save changes')
-      }
+      const response = await myApi.patch('/user/edit', editedAddress)
+      // console.log(editedAddress)
+      setUser(response.data)
+      navigate('/profile')
+      
     } catch (error) {
       console.log(error)
       setMessage('An error occurred while saving changes')
