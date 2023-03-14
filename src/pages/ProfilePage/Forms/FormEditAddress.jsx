@@ -39,7 +39,6 @@ const EditAddress = () => {
         city,
         country
       }
-
     }
 
     try {
