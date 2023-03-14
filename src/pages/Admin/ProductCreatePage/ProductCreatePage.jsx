@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Confetti from 'react-confetti'
 import './ProductCreatePage.css'
 import myApi from '../../../service/service'
-import { Link } from 'react-router-dom'
-// import Upload from '../../../components/Upload/Upload'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ProductCreatePage = () => {
   const [name, setName] = useState('')
@@ -14,11 +13,22 @@ const ProductCreatePage = () => {
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
   const [showConfetti, setShowConfetti] = useState(false)
+  const [imageFile, setImageFile] = useState('');
+  const [imageURL, setImageURL] = useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const productToCreate = { name, image, brand, category, description, price, countInStock }
     try {
+      const formData = new FormData();
+      
+      formData.append("image", imageFile);
+      
+      const { data: { image } } = await myApi.post("/products/images", formData);
+      setImageURL(image);
+      
+      const productToCreate = { name, image, brand, category, description, price, countInStock }
+
       const response = await myApi.post('/products/create', productToCreate)
       console.log(response)
       if (response.status === 201) {
@@ -32,7 +42,8 @@ const ProductCreatePage = () => {
         setDescription('')
         setTimeout(() => {
           setShowConfetti(false)
-        }, 5000)
+          navigate('/store')
+        }, 3000)
       }
       console.log(response)
     } catch (error) {
@@ -94,6 +105,7 @@ const ProductCreatePage = () => {
                     value={price}
                     name="price"
                     id="price"
+                    min='1'
                     onChange={(event) => setPrice(event.target.value)}
                   ></input>
                 </div>
@@ -104,6 +116,7 @@ const ProductCreatePage = () => {
                     value={countInStock}
                     name="countInStock"
                     id="countInStock"
+                    min='0'
                     onChange={(event) => setCountInStock(event.target.value)}
                   ></input>
                 </div>
@@ -112,7 +125,7 @@ const ProductCreatePage = () => {
               <div>
                 <label htmlFor="edit-image">Image:</label>
                 <div>
-                  {/* <Upload /> */}
+                  <input type="file" name="image" onChange={(e) => setImageFile(e.target.files[0])} />
                 </div>
                 <label htmlFor="description">Description: </label>
                 <div>
