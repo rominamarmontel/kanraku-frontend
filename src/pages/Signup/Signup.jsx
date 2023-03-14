@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import myApi from '../../service/service'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate, Link } from 'react-router-dom'
 import './Signup.css'
 
 const Signup = () => {
@@ -80,6 +80,9 @@ const Signup = () => {
             {error.length > 0 && <p className="error">{error}</p>}
             <button>Signup</button>
           </div>
+          <div>
+            <h4>You have already your account?
+              <Link to='/Login'> Login</Link></h4></div>
         </div>
       </form>
     </section>

@@ -20,26 +20,25 @@ const Navbar = () => {
   return (
     <div className='Navbar'>
 
-        <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
+      <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
 
-        <NavLink to="/">HOME</NavLink>
-        <NavLink to="/store">STORE</NavLink>
-        <NavLink to="/about">ABOUT</NavLink>
-        <NavLink to="/contact">CONTACT</NavLink>
-        {!user ? (
-          <>
-            <NavLink to="/login">LOGIN</NavLink>
-            <NavLink to="/signup">SIGNUP</NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to="/profile">PROFILE</NavLink>
-            <NavLink to='/cart'>
-              <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" color="black" state="hover"></lord-icon>
-            </NavLink>
-            <button onClick={handleClick}>LOGOUT</button>
-          </>
-        )}
+      <NavLink to="/">HOME</NavLink>
+      <NavLink to="/store">STORE</NavLink>
+      <NavLink to="/about">ABOUT</NavLink>
+      <NavLink to="/contact">CONTACT</NavLink>
+      {!user ? (
+        <>
+          <NavLink to="/login">LOGIN</NavLink>
+        </>
+      ) : (
+        <>
+          <NavLink to="/profile">PROFILE</NavLink>
+          <NavLink to='/cart'>
+            <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" color="black" state="hover"></lord-icon>
+          </NavLink>
+          <button onClick={handleClick} className='logout'>LOGOUT</button>
+        </>
+      )}
 
     </div>
   )
