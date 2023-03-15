@@ -27,7 +27,8 @@ const DetailedProductCard = () => {
     if (!user) {
       return navigate("/login");
     } else {
-      await myApi.post(`/products/add`, { qty });
+      await myApi.post(`/cart/add`, { product: product._id, qty });
+      navigate("/cart");
     }
   };
 
@@ -139,7 +140,7 @@ const DetailedProductCard = () => {
                       <td>
                         <input
                           type="number"
-                          name="quantity"
+                          name="qty"
                           min="0"
                           max={product.countInStock}
                           value={qty}
