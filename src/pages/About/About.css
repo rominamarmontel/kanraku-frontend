@@ -9,20 +9,18 @@
   width: 90%;
   margin: 0 auto;
 }
-/* .About .title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
+.About .title {
+padding-top: 3rem;
+}
 .About h2 {
-  margin: 0 5rem;
+  margin: 0;
 }
 .About h5 {
-  margin: 0 5rem 0 5rem;
   font-family: 'Lora&display';
   font-weight: bold;
   font-size: 1.2rem;
 }
 .About p {
-  margin: 0 5rem;
+  margin: 3rem 5rem;
+  font-weight: 300;
 }

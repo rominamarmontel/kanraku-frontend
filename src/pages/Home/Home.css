@@ -106,13 +106,20 @@
 .new-products .container {
   width: 80%;
   margin: 0 auto;
+  padding: 0;
+}
+.new-products .scroll {
+  overflow-x: scroll;
 }
 .Home-productCard {
-  overflow-x: scroll;
   display: flex;
   flex-direction: row;
   height: auto;
   margin-top: 2rem;
+  width: 500rem;
+}
+.new-products h2 {
+  margin: 0;
 }
 .new-products h5 {
   font-family: 'Lora&display';

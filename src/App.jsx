@@ -24,6 +24,7 @@ import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
 import ProductCreatePage from './pages/Admin/ProductCreatePage/ProductCreatePage'
+import EditProductForm from "./components/EditProductForm/EditProductForm";
 
 
 function App() {

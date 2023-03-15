@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./DetailedProductCard.css";
 import myApi from "../../service/service";
 import { AuthContext } from "../../context/AuthContext";
-// import Upload from '../Upload/Upload'
+import EditProductForm from "../EditProductForm/EditProductForm";
 
-const DetailedProductCard = (props) => {
+const DetailedProductCard = () => {
   const [editIsOn, setEditIsOn] = useState(false);
   const [deleteIsOn, setDeleteIsOn] = useState(false);
   const [name, setName] = useState("");
@@ -18,9 +18,9 @@ const DetailedProductCard = (props) => {
   const [qty, setQty] = useState(0);
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState({});
-  const navigate = useNavigate();
   const params = useParams();
   const productId = params.id;
+  const navigate = useNavigate();
 
   //Click a Cart button
   const addToCartHandler = async () => {
@@ -48,35 +48,10 @@ const DetailedProductCard = (props) => {
       .catch((e) => console.error(e));
   }, []);
 
-  //Click to valid your edition
   const editHandler = async (event) => {
     event.preventDefault();
     setEditIsOn(!editIsOn);
-    const productToUpdate = {
-      name,
-      brand,
-      category,
-      image,
-      price,
-      countInStock,
-      description,
-    };
-    const url = `/products/${productId}`;
-    try {
-      const res = await myApi.patch(url, productToUpdate);
-      setProduct(res.data);
-      setName(res.data.name);
-      setImage(res.data.image);
-      setBrand(res.data.brand);
-      setCategory(res.data.category);
-      setPrice(res.data.price);
-      setCountInStock(res.data.countInStock);
-      setDescription(res.data.description);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  }
   //Click to delete a product
   const deleteHandler = async (event) => {
     event.preventDefault;
@@ -92,204 +67,109 @@ const DetailedProductCard = (props) => {
   };
 
   return (
-    <>
-      <div className="OneProductCard">
-        <div className="buttons">
-          {user && user.isAdmin && (
-            <button className="btn-block" type="button" onClick={editHandler}>
-              Edit
-            </button>
-          )}
-
-          {user && user.isAdmin && (
-            <button className="btn-block" type="button" onClick={deleteHandler}>
-              Delete
-            </button>
-          )}
-        </div>
-
-        <div className="container">
-          <div>
-            <h2>{product.name}</h2>
-            <h5>{product.category}</h5>
-          </div>
-
-          {editIsOn ? (
-            <>
-              {/* Edit product for Admin */}
-              <div className="first">
-                <div className="direction">
-                  <Link to={`/`}>Home</Link>
-                  <p> / Admin</p>
-                </div>
-              </div>
-              <div className="ProductEditPage">
-                <div className="container">
-                  <div>
-                    <h2>ADMIN PAGE</h2>
-                    <h5>EDIT A PRODUCT</h5>
-                  </div>
-                  <form onSubmit={editHandler} action="">
-                    <div className="form-box">
-                      <div>
-                        <label htmlFor="edit-name">Name:</label>
-                        <div>
-                          <input
-                            name="name"
-                            value={name}
-                            id="name"
-                            onChange={(event) => setName(event.target.value)}
-                          ></input>
-                        </div>
-
-                        <label htmlFor="edit-brand">Brand:</label>
-                        <div>
-                          <input
-                            name="brand"
-                            value={brand}
-                            id="brand"
-                            onChange={(event) => setBrand(event.target.value)}
-                          />
-                        </div>
-                        <label htmlFor="edit-category">Category:</label>
-                        <div>
-                          <input
-                            name="category"
-                            value={category}
-                            id="category"
-                            onChange={(event) =>
-                              setCategory(event.target.value)
-                            }
-                          />
-                        </div>
-                        <label htmlFor="edit-price">Price:</label>
-                        <div>
-                          <input
-                            name="price"
-                            value={price}
-                            id="price"
-                            onChange={(event) => setPrice(event.target.value)}
-                          />
-                        </div>
-                        <label htmlFor="edit-countInstock">
-                          Count in stock:
-                        </label>
-                        <div>
-                          <input
-                            name="countInStock"
-                            value={countInStock}
-                            id="countInStock"
-                            onChange={(event) =>
-                              setCountInStock(event.target.value)
-                            }
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label htmlFor="edit-image">Image:</label>
-                        <div>{/* <Upload /> */}</div>
-                        <label htmlFor="edit-description">Description:</label>
-                        <div>
-                          <textarea
-                            name="description"
-                            value={description}
-                            id="description"
-                            cols="30"
-                            rows="10"
-                            onChange={(event) =>
-                              setDescription(event.target.value)
-                            }
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <button>Update a product</button>
-                  </form>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Product Detail */}
-              <div className="product-details">
-                <picture>
-                  <img src={product.image} alt={product.name} />
-                </picture>
-                <div className="description">
-                  <p>{product.description}</p>
-                </div>
-                <div>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td>
-                          <p className="price">{product.price} €</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label htmlFor="brand">Brand</label>
-                        </td>
-                        <td>
-                          <p className="brand">{product.brand}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <p className="countInStock">
-                            {" "}
-                            {product.countInStock > 0
-                              ? `In Stock`
-                              : "Out Of Stock"}
-                          </p>
-                        </td>
-                        <td>
-                          <p className="countInStock">
-                            {" "}
-                            {product.countInStock > 0
-                              ? `${product.countInStock}`
-                              : "Out Of Stock"}
-                          </p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label htmlFor="qty">Qty</label>
-                        </td>
-                        <td>
-                          <input
-                            type="number"
-                            name="quantity"
-                            min="0"
-                            max={product.countInStock}
-                            value={qty}
-                            onChange={({ target }) =>
-                              setQty(Number(target.value))
-                            }
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div className="add-btn">
-                    <button
-                      onClick={addToCartHandler}
-                      className="btn-block"
-                      type="button"
-                      disabled={product.countInStock === 0}
-                    >
-                      Add To Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
+    <div className="DetailedProductCard">
+      <div className="buttons">
+        {user && user.isAdmin && (
+          <button className="btn-block" type="button" onClick={editHandler}>
+            Edit
+          </button>
+        )}
+        {user && user.isAdmin && (
+          <button className="btn-block" type="button" onClick={deleteHandler}>
+            Delete
+          </button>
+        )}
       </div>
-    </>
+
+      <div className="container">
+        <div className="title">
+          <h2 className="h2">{product.name}</h2>
+          <h5 className="h5">{product.category}</h5>
+        </div>
+
+        {editIsOn ? (
+
+          <EditProductForm />
+        ) : (
+          <>
+            {/* Product Detail */}
+            <div className="product-details">
+              <picture>
+                <img src={product.image} alt={product.name} />
+              </picture>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <p className="price">{product.price} €</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="brand">Brand</label>
+                      </td>
+                      <td>
+                        <p className="brand">{product.brand}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p className="countInStock">
+                          {" "}
+                          {product.countInStock > 0
+                            ? `In Stock`
+                            : "Out Of Stock"}
+                        </p>
+                      </td>
+                      <td>
+                        <p className="countInStock">
+                          {" "}
+                          {product.countInStock > 0
+                            ? `${product.countInStock}`
+                            : "Out Of Stock"}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label htmlFor="qty">Qty</label>
+                      </td>
+                      <td>
+                        <input
+                          type="number"
+                          name="quantity"
+                          min="0"
+                          max={product.countInStock}
+                          value={qty}
+                          onChange={({ target }) =>
+                            setQty(Number(target.value))
+                          }
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="add-btn">
+                  <button
+                    onClick={addToCartHandler}
+                    className="btn-cart"
+                    type="button"
+                    disabled={product.countInStock === 0}
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="description">
+              <p>{product.description}</p>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

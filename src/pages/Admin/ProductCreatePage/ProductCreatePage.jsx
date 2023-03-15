@@ -21,16 +21,15 @@ const ProductCreatePage = () => {
     event.preventDefault()
     try {
       const formData = new FormData();
-      
+
       formData.append("image", imageFile);
-      
+
       const { data: { image } } = await myApi.post("/products/images", formData);
       setImageURL(image);
-      
+
       const productToCreate = { name, image, brand, category, description, price, countInStock }
 
       const response = await myApi.post('/products/create', productToCreate)
-      console.log(response)
       if (response.status === 201) {
         setShowConfetti(true)
         setName('')
@@ -53,11 +52,6 @@ const ProductCreatePage = () => {
 
   return (
     <>
-      <div className='first'>
-        <div className='direction'>
-          <Link to={`/`} >Home</Link><p> / Admin</p>
-        </div>
-      </div>
       <div className='ProductCreatePage'>
         <div className='container'>
           <div>

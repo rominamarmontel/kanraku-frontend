@@ -1,4 +1,3 @@
-
 /*.DetailedProductCard */
 .DetailedProductCard {
   margin: 0;
@@ -11,44 +10,33 @@
   width: 90%;
   margin: 0 auto;
 }
-.DetailedProductCard .product-details {
+.DetailedProductCard .title {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 5rem;
+  flex-direction: column;
+  align-items: flex-end;
 }
-.DetailedProductCard h2 {
-  text-align: right;
+.DetailedProductCard .title .h2 {
+  margin: 0;
 }
-.DetailedProductCard h5 {
+.DetailedProductCard .h5 {
   font-family: 'Lora&display';
   font-weight: bold;
-  font-size: 1.5rem;
-  text-align: right;
+  font-size: 1.2rem;
 }
-.OneProductCard .buttons {
+.DetailedProductCard .buttons {
   display: flex;
   justify-content: center;
   margin: 1rem 0 0 0;
   gap: 2rem;
 }
-.DetailedProductCard .btn-admin {
+.DetailedProductCard .btn-block {
   margin-bottom: 2rem;
   margin-right: 1rem;
   background-color: black;
 }
-.DetailedProductCard .btn-admin:hover {
+.DetailedProductCard .btn-block:hover {
   background-color: gray;
   border-color: gray;
-}
-.DetailedProductCard .btn-create {
-  background-color: gray;
-  color: #fff;
-  border-radius: 5px;
-  padding: .5rem;
-}
-.DetailedProductCard .btn-create:hover {
-  background-color: black;
 }
 .DetailedProductCard .product-info {
   display: flex;
@@ -56,24 +44,42 @@
   gap: 1.5rem;
   justify-content: right;
 }
-.DetailedProductCard td {
-  width: 20rem;
+.DetailedProductCard .product-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+  margin-bottom: 1rem;
+}
+.DetailedProductCard .product-details table {
+  border-bottom: 1px solid black;
+}
+.DetailedProductCard .product-details td {
+  width: 10rem;
   text-align: right;
 }
-.DetailedProductCard tr, .DetailedProductCard .countInStock, .DetailedProductCard .brand {
-  font-size: 1rem;
+.DetailedProductCard tr, .DetailedProductCard .countInStock , .DetailedProductCard .brand {
+  font-size: 1.2rem;
   font-weight: 300;
+  line-height: 2rem;
+}
+.DetailedProductCard tr {
+  position: relative;
 }
 .DetailedProductCard td:nth-child(2) {
-  font-size: 1.2rem;
+  text-align: center;
 }
 .DetailedProductCard input {
   border: none;
   font-size: 1.2rem;
+  font-weight: 300;
+  font-family: Roboto;
+
 }
 .DetailedProductCard td .price {
   font-size: 2rem;
-  color: gray;
+  color: rgb(234, 93, 42);
+  margin-bottom: 2rem;
 }
 .DetailedProductCard .description {
   border-top: 1px solid black;
@@ -81,74 +87,21 @@
   padding-bottom: 3rem;
 }
 .DetailedProductCard .description p {
-  font-size: .8rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 200;
 }
-.DetailedProductCard .add-btn {
+.DetailedProductCard .product-details .add-btn {
   display: flex;
   justify-content: flex-end;
   margin: 1rem 0 ;
+  margin-top: 3rem;
+}
+.product-details picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .product-details picture img {
-  width: 50rem;
-}
-
-/* Edit product */
-
-.ProductEditPage {
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
   width: 100%;
-  height: calc(100vh - 180px);
-}
-.ProductEditPage .container {
-  width: 90%;
-  margin: 0 auto;
-}
-.ProductEditPage Form {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  background-color: antiquewhite;
-  padding-top: 3rem;
-}
-.ProductEditPage Form input {
-  width: 100%;
-  padding: 8px 20px;
-  margin: 3px 0;
-  box-sizing: border-box;
-}
-.ProductEditPage Form textarea {
-  width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
-}
-.ProductEditPage Form .form-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: 3rem;
-}
-.ProductEditPage Form button {
-  width: 10rem;
-  margin: 2rem auto;
-}
-.ProductEditPage p {
-  margin: 0;
-  padding: 0;
-}
-.ProductEditPage h2 {
-  margin: 0 5rem;
-}
-.ProductEditPage h5 {
-  margin: 0 5rem 0 5rem;
-  font-family: 'Lora&display';
-  font-weight: bold;
-  font-size: 1.2rem;
+  height: 30rem;
 }
