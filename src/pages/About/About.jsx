@@ -11,7 +11,7 @@ const About = () => {
             <h2>ABOUT</h2>
             <h5>KANRAKU HOSAI WORLD</h5>
           </div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nesciunt? Nostrum similique nisi quam aliquam nam, accusantium autem aliquid dolorem rerum, voluptas, illo minus asperiores veritatis quisquam excepturi provident vel.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nesciunt? Nostrum similique nisi quam aliquam nam, accusantium autem aliquid dolorem rerum, voluptas, illo minus asperiores veritatis quisquam excepturi provident vel.Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nesciunt? Nostrum similique nisi quam aliquam nam, accusantium autem aliquid dolorem rerum, voluptas, illo minus asperiores veritatis quisquam excepturi provident vel.Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nesciunt? Nostrum similique nisi quam aliquam nam, accusantium autem aliquid dolorem rerum, voluptas, illo minus asperiores veritatis quisquam excepturi provident vel.Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, nesciunt? Nostrum similique nisi quam aliquam nam, accusantium autem aliquid dolorem rerum, voluptas, illo minus asperiores veritatis quisquam excepturi provident vel.</p>
         </div>
       </div>
     </>

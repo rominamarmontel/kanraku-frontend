@@ -59,10 +59,12 @@ const Home = () => {
         <div className='container'>
           <h2>NEW ARRIVING</h2>
           <h5>DON'T MISS OUT</h5>
-          <div className='Home-productCard'>
-            {products.map((product) => {
-              return <ProductCard key={product._id} product={product} />
-            })}
+          <div className='scroll'>
+            <div className='Home-productCard'>
+              {products.map((product) => {
+                return <ProductCard key={product._id} product={product} />
+              })}
+            </div>
           </div>
         </div>
       </div>

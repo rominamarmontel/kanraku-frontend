@@ -11,9 +11,13 @@ const ProductCard = (props) => {
           <picture>
             <img width={150} src={product.image} alt={product.name} />
           </picture>
-          <p>{product.name}</p>
+          <div>
+            <p>{product.name}</p>
+          </div>
         </Link>
-        <p className='price'>{product.price} €</p>
+        <div>
+          <p className='price'>{product.price} €</p>
+        </div>
       </div>
     </div >
   )

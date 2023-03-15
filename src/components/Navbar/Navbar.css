@@ -1,4 +1,5 @@
 .Navbar {
+  margin-top: 1rem;
   display: flex;
   justify-items: center;
   justify-content: space-around;
