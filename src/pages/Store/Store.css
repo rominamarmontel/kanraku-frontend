@@ -1,8 +1,7 @@
 .Store {
   padding: 0;
   background-color: #ffffff;
-  width: 100%;
-  height: calc(100vh - 180px);
+  width: 100vw;
 }
 .Store .container {
   width: 90%;
@@ -13,12 +12,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  padding-top: 3rem;
-}
-.Store .font {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  padding-top: 2rem;
 }
 .Store h2 {
   margin: 0;
@@ -28,27 +22,43 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
-.SearchAndCreate {
+
+.Create {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-right: 5rem;
+  gap: 1rem;
 }
-.SearchAndCreate .btn-create {
-  margin-right: 15rem;
+.Create button {
   color:#ffffff;
   background-color: black;
   padding: 0.6em 1em;
   border-radius: 3px;
   font-size: .8em;
 }
-.SearchAndCreate .btn-create:hover {
+.Create button:hover {
   background-color: gray;
   border-color: gray;
 }
-.productCard {
-  margin: 0 5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: .5rem;
+.Create .btn-create {
+  color:#ffffff;
+  background-color: black;
+  padding: 0.6em 1em;
+  border-radius: 3px;
+  font-size: .8em;
+  margin-right: 10rem;
 }
+.Create .btn-create:hover {
+  background-color: gray;
+  border-color: gray;
+}
+
+.productCard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .15rem;
+}
+/* .productCard img {
+  aspect-ratio: 5/5;
+} */

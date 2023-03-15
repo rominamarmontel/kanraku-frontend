@@ -43,24 +43,24 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Route>
 
-          {/* <Route element={<ProtectedRoute />}> */}
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route
-            path="/profile/edit-informations"
-            element={<FormEditProfile />}
-          />
-          <Route path="/profile/edit-address" element={<FormEditAddress />} />
-          <Route path="/profile/add-address" element={<FormAddAddress />} />
-          <Route path="/orders" element={<OrderPage />} />
-          <Route path="/placeorder" element={<PlaceOrderPage />} />
-          <Route path="/shipping" element={<ShippingPage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/admin/userlist" element={<UserListPage />} />
-          <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
-          <Route path="/admin/orderlist" element={<OrderListPage />} />
-          <Route path="/admin/products/create" element={<ProductCreatePage />} />
-          <Route path="/cart" element={<CartPage />} />
-          {/* </Route> */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route
+              path="/profile/edit-informations"
+              element={<FormEditProfile />}
+            />
+            <Route path="/profile/edit-address" element={<FormEditAddress />} />
+            <Route path="/profile/add-address" element={<FormAddAddress />} />
+            <Route path="/orders" element={<OrderPage />} />
+            <Route path="/placeorder" element={<PlaceOrderPage />} />
+            <Route path="/shipping" element={<ShippingPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/admin/userlist" element={<UserListPage />} />
+            <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+            <Route path="/admin/orderlist" element={<OrderListPage />} />
+            <Route path="/admin/products/create" element={<ProductCreatePage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Route>
           <Route path="/products/:id" element={<DetailedProductPage />} />
           <Route path="*" element={<Error />} />
         </Route>
