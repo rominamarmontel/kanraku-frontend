@@ -16,7 +16,7 @@ const ProductInCartCard = (props) => {
 
   return (
     <>
-      <form forHtml='' action="/cart/{{product._id}}/delete" method="POST">
+      <form forHtml='/cart' >
         <div>Name: {product.name}</div>
         <div>Price: {product.price}</div>
         <img src={product.image} alt='{product.name}' width={100} />
@@ -26,11 +26,8 @@ const ProductInCartCard = (props) => {
           onClick={() => handleDelete(product.id)}
           type="button"
           class="btn-delete"
-        >
-          Delete
-        </button>
+        >Delete </button>
       </form>
-
     </>
   )
 }

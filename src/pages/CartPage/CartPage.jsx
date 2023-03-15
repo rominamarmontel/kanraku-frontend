@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import myApi from '../../service/service'
 import { AuthContext } from "../../context/AuthContext";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ProductInCartCard from "../../components/ProductInCartCard/ProductInCartCard";
 
 
@@ -15,7 +15,7 @@ const CartPage = () => {
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
   const { user } = useContext(AuthContext);
-  const [product, setProduct] = useState('')
+  const [product, setProduct] = useState(null)
   const [username, setUsername] = useState('')
   const params = useParams();
   const productId = params.id;
@@ -38,20 +38,23 @@ const CartPage = () => {
         setCountInStock(res.data.countInStock);
         setDescription(res.data.description);
         setUsername(res.data.username)
-        calculateTotalPrice()
       }).catch((e) => console.error(e))
     // console.log('=======', product, user)
     // console.log('= = = = ', product[0].product)
   }, []);
+  useEffect(() => calculateTotalPrice(), [product])
 
   function calculateTotalPrice() {
+    if (!product) return
     const allPrices = product.reduce((acc, val) => {
       return acc + val.qty * val.product.price
     }, 0)
     setTotalPrice(allPrices)
   }
 
+  //to delete once fixed
   if (!user || !product) return
+
   return (
     <>
       <div className="container">
@@ -62,6 +65,7 @@ const CartPage = () => {
         </div>
         <div>Amount total: {totalPrice}</div>
       </div>
+      <Link to='/payment'><button>CHECKOUT</button></Link>
     </>
   )
 }
