@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Search.css'
 
-function Search({ handleInputChange, searchKeyword }) {
+const Search = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+
+
   return (
     <>
+    
       <div className='Search'>
-        <input
-          id="search-keyword"
-          value={searchKeyword}
-          type="text"
-          placeholder='Search'
-          onChange={handleInputChange}
-        />
+
+      <input id="search-keyword" type='text' value={searchQuery} onChange={handleSearchChange} placeholder='Search by..' /> 
+
       </div>
     </>
   );

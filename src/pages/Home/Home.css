@@ -113,10 +113,10 @@
 }
 .Home-productCard {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   height: auto;
   margin-top: 2rem;
-  width: 500rem;
+  width: 100vw;
 }
 .new-products h2 {
   margin: 0;

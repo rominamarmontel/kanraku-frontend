@@ -46,3 +46,15 @@ h2 {
 .ProfileInfos span {
   font-weight: 700;
 } 
+
+.ProfilePage button {
+  color:#ffffff;
+  background-color: black;
+  padding: 0.6em 1em;
+  border-radius: 3px;
+  font-size: .8em;
+}
+.ProfilePage button:hover {
+  background-color: gray;
+  border-color: gray;
+}
