@@ -21,7 +21,7 @@ const ProductInCartCard = (props) => {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
   }
 
   return (

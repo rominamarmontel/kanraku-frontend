@@ -76,7 +76,7 @@ const CartPage = () => {
 
         <div className="checkout">
           <p><span className='text'>Total:</span> {totalPrice} €</p>
-          <Link to="/shipping">
+          <Link to="/checkout">
             <button> CHECKOUT 
               <lord-icon src="https://cdn.lordicon.com/jxwksgwv.json" trigger="hover" colors="primary:#ffffff" state="hover-2" />
               </button>
