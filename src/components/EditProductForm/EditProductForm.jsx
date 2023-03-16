@@ -62,7 +62,7 @@ const EditProductForm = (props) => {
       const res = await myApi.patch(`/products/${productId}`, productToUpdate);
       setProduct(res.data);
       setName(res.data.name);
-      setImage(res.data.image);
+      setImageURL(res.data.image);
       setBrand(res.data.brand);
       setCategory(res.data.category);
       setPrice(res.data.price);

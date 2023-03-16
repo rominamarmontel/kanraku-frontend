@@ -6,6 +6,7 @@ import ProductInCartCard from "../../components/ProductInCartCard/ProductInCartC
 import './CartPage.css'
 
 const CartPage = () => {
+  const { user } = useContext(AuthContext)
   const [qty, setQty] = useState('')
   const [name, setName] = useState('')
   const [brand, setBrand] = useState('')
@@ -14,10 +15,8 @@ const CartPage = () => {
   const [price, setPrice] = useState(0)
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
-  const { user } = useContext(AuthContext);
   const [product, setProduct] = useState(null)
   const [username, setUsername] = useState('')
-
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
@@ -25,7 +24,7 @@ const CartPage = () => {
     myApi
       .get(url)
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         setProduct(res.data)
         setQty(res.data.qty)
         setName(res.data.name)
@@ -58,7 +57,7 @@ const CartPage = () => {
       console.error(e)
     }
   }
-  
+
   //to delete once fixed
   if (!user || !product) return
 

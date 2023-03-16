@@ -43,12 +43,10 @@ const AddAddress = () => {
 
     try {
       const response = await myApi.patch('/user/edit', newAddress)
-      // console.log(editedAddress)
       setUser(response.data)
       navigate('/profile')
       
     } catch (error) {
-      console.log(error)
       setMessage('An error occurred while creating changes')
     }
   }

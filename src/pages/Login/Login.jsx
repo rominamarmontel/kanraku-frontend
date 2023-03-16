@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import myApi from './../../service/service'
 import { AuthContext } from '../../context/AuthContext'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Login.css'
 
 const Login = () => {
@@ -10,20 +10,16 @@ const Login = () => {
   const [error, setError] = useState('')
   const { storeToken, authenticateUser } = useContext(AuthContext)
 
-  const navigate = useNavigate()
-
   async function handleSubmit(event) {
     event.preventDefault()
     const userToLogin = { email, password }
 
     try {
       const response = await myApi.post('/auth/login', userToLogin)
-      console.log(response)
       storeToken(response.data.token)
       await authenticateUser()
     } catch (error) {
-      console.error(error)
-      // setError(error.response.data.message)
+      setError(error.response.data.message)
     }
   }
   return (
