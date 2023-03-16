@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import myApi from '../../service/service'
-import { Navigate, useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Signup.css'
 
 const Signup = () => {

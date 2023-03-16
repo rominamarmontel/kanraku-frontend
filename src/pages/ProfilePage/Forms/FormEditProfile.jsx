@@ -24,12 +24,11 @@ const EditInformation = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const changes = { username, email, /* password */ }
+    const changes = { username, email }
 
    
     try {
       const response = await myApi.patch('/user/edit', changes)
-      //console.log(response)
       setUser(response.data)
       navigate('/profile')
     

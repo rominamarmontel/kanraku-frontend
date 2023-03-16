@@ -24,7 +24,6 @@ const AuthContextWrapper = (props) => {
     try {
       const currentToken = getToken()
       setToken(currentToken)
-      if (!currentToken) return setUser(null)
 
       const response = await myApi.get('/auth/verify', {
         headers: {
@@ -39,7 +38,6 @@ const AuthContextWrapper = (props) => {
         setIsLoading(false)
       }
     } catch (error) {
-      // console.log(error.response.data)
       setUser(null)
       setIsLoading(false)
     }
@@ -51,7 +49,7 @@ const AuthContextWrapper = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ storeToken, user, setUser, authenticateUser, removeToken }}
+      value={{ storeToken, user, setUser, authenticateUser, removeToken, isLoading }}
     >
       {props.children}
     </AuthContext.Provider>

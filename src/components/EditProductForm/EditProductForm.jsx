@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react"
-import { useNavigate, useParams, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom";
 import './EditProductForm.css'
 import myApi from '../../service/service'
 
@@ -8,13 +8,10 @@ const EditProductForm = (props) => {
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
   const [price, setPrice] = useState(0);
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState('');
-  const [imageURL, setImageURL] = useState('');
-  // const { user } = useContext(AuthContext);
   const [product, setProduct] = useState({});
   const navigate = useNavigate();
   const params = useParams();
@@ -27,7 +24,6 @@ const EditProductForm = (props) => {
       .then((res) => {
         setProduct(res.data.oneProduct);
         setName(res.data.oneProduct.name);
-        setImage(res.data.oneProduct.image);
         setBrand(res.data.oneProduct.brand);
         setCategory(res.data.oneProduct.category);
         setPrice(res.data.oneProduct.price);
@@ -45,29 +41,18 @@ const EditProductForm = (props) => {
     try {
       const formData = new FormData();
 
-      formData.append("image", imageFile);
-      const { data: { image } } = await myApi.post("/products/images", formData);
-      setImageURL(image);
+      if (imageFile !== '') {
+        formData.append("image", imageFile);
+      }
+      formData.append("name", name);
+      formData.append("brand", brand);
+      formData.append("category", category);
+      formData.append("price", price);
+      formData.append("countInStock", countInStock);
+      formData.append("description", description);
 
-      const productToUpdate = {
-        name,
-        brand,
-        category,
-        image,
-        price,
-        countInStock,
-        description,
-      };
 
-      const res = await myApi.patch(`/products/${productId}`, productToUpdate);
-      setProduct(res.data);
-      setName(res.data.name);
-      setImageURL(res.data.image);
-      setBrand(res.data.brand);
-      setCategory(res.data.category);
-      setPrice(res.data.price);
-      setCountInStock(res.data.countInStock);
-      setDescription(res.data.description);
+      const res = await myApi.patch(`/products/${productId}`, formData);
       navigate(`/store`)
     } catch (error) {
       console.error(error);
