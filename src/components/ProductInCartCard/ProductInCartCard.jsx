@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import myApi from '../../service/service'
 
 const ProductInCartCard = (props) => {
-  const [products, setProducts] = useState('')
   const { qty, product } = props.item
   const totalPrice = Number(product.price * qty)
 
   const handleDelete = async (id) => {
     try {
-      const response = await myApi.delete(`/cart/remove/${product._id}`)
-      const newList = response.data.map((item) => ({
-        qty: item.qty,
-        product: item.product,
-      }))
-      setProducts(newList)
+      await myApi.delete(`/cart/remove/${product._id}`)
+      props.onRemove()
     } catch (error) {
       console.log(error)
     }
