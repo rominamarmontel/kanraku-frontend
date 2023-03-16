@@ -8,7 +8,6 @@ const ShippingPage = () => {
   const [postalCode, setPostalCode] = useState(user.shippingAddress?.postalCode || '')
   const [city, setCity] = useState(user.shippingAddress?.city || '')
   const [country, setCountry] = useState(user.shippingAddress?.country || '')
-  // const [phone, setPhone] = useState(user?.shippingAddress?.phone || '')
   const [isAddressValid, setIsAddressValid] = useState(false)
 
   const handleAddressChange = (event) => {
@@ -27,10 +26,6 @@ const ShippingPage = () => {
     setCountry(event.target.value)
   }
 
-  // const handlePhoneChange = (event) => {
-  //   setPhone(event.target.value)
-  // }
-
   const handleAddressValidation = () => {
     if (address.trim() === '') {
       alert('Please enter a valid address.')
@@ -48,10 +43,6 @@ const ShippingPage = () => {
       alert('Please enter a valid country.')
       return
     }
-    // if (phone.trim() === '') {
-    //   alert('Please enter a valid phone number.')
-    //   return
-    // }
     setIsAddressValid(true)
   }
   
@@ -88,11 +79,6 @@ const ShippingPage = () => {
         <input type='text' value={country} name='country' id='country' required onChange={handleCountryChange} />
       </div>
 
-      {/* <div>
-        <label htmlFor='phone'>Phone:</label>
-        <input type='tel' value={phone} name='phone' id='phone' required onChange={handlePhoneChange} />
-      </div> */}
-
       <div className="form-address-btns">
         <button type='submit'>Validate Address</button>
       </div>
@@ -103,9 +89,7 @@ const ShippingPage = () => {
        <PaymentMethod />
       </div>
     )}
-  
   </div>
-
   )
 }
 

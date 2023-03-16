@@ -7,17 +7,12 @@ import './CartPage.css'
 
 const CartPage = () => {
   const { user } = useContext(AuthContext)
+  const [product, setProduct] = useState(null)
+  const [totalPrice, setTotalPrice] = useState(0)
   const [qty, setQty] = useState('')
   const [name, setName] = useState('')
-  const [brand, setBrand] = useState('')
-  const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
   const [price, setPrice] = useState(0)
-  const [countInStock, setCountInStock] = useState(0)
-  const [description, setDescription] = useState('')
-  const [product, setProduct] = useState(null)
-  const [username, setUsername] = useState('')
-  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     const url = '/cart';
@@ -29,12 +24,7 @@ const CartPage = () => {
         setQty(res.data.qty)
         setName(res.data.name)
         setImage(res.data.image)
-        setBrand(res.data.brand)
-        setCategory(res.data.category)
         setPrice(res.data.price)
-        setCountInStock(res.data.countInStock)
-        setDescription(res.data.description)
-        setUsername(res.data.username)
       }).catch((e) => console.error(e))
   }, [])
   useEffect(() => calculateTotalPrice(), [product])
@@ -49,8 +39,7 @@ const CartPage = () => {
 
   const handleRemoveAll = async () => {
     try {
-      const url = '/cart/remove-all'
-      const res = await myApi.delete(url)
+      await myApi.delete('/cart/remove-all')
       setProduct([])
       setTotalPrice(0)
     } catch (e) {
@@ -69,7 +58,7 @@ const CartPage = () => {
       <>
       <div className="CartPage">
           <div className='items-list'>{product.map((item) => {
-            return <ProductInCartCard key={item._id} item={item} />
+            return <ProductInCartCard key={item.product._id} item={item} />
           })}
           </div>
 

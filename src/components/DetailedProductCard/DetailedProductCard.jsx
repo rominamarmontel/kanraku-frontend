@@ -133,7 +133,7 @@ const DetailedProductCard = () => {
                           {" "}
                           {product.countInStock > 0
                             ? `${product.countInStock}`
-                            : "Out Of Stock"}
+                            : "-"}
                         </p>
                       </td>
                     </tr>

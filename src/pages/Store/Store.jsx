@@ -1,58 +1,58 @@
-import React, { useState, useEffect, useContext } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import { Link } from "react-router-dom";
-import myApi from "../../service/service";
-import "./Store.css";
-import { AuthContext } from "../../context/AuthContext";
+import React, { useState, useEffect, useContext } from "react"
+import ProductCard from "../../components/ProductCard/ProductCard"
+import { Link } from "react-router-dom"
+import myApi from "../../service/service"
+import "./Store.css"
+import { AuthContext } from "../../context/AuthContext"
 
 const Store = () => {
-  const [products, setProducts] = useState(null);
-  const [sortKey, setSortKey] = useState(null);
-  const [sortDir, setSortDir] = useState(null);
-  const { user } = useContext(AuthContext);
+  const [products, setProducts] = useState(null)
+  const [sortKey, setSortKey] = useState(null)
+  const [sortDir, setSortDir] = useState(null)
+  const { user } = useContext(AuthContext)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await myApi.get('/products');
-        setProducts(res.data);
+        const res = await myApi.get('/products')
+        setProducts(res.data)
       } catch (e) {
-        console.error(e);
+        console.error(e)
       }
     };
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const handleSort = (key) => {
     if (sortKey === key) {
       // Toggle sort direction if the same key is clicked again
-      setSortDir(sortDir === 'asc' ? 'desc' : 'asc');
+      setSortDir(sortDir === 'asc' ? 'desc' : 'asc')
     } else {
       // Set new sort key and direction
-      setSortKey(key);
-      setSortDir('asc');
+      setSortKey(key)
+      setSortDir('asc')
     }
   };
 
   const sortedProducts = products
     ? products.slice().sort((a, b) => {
         if (sortKey === 'name') {
-          const aName = a.name.toUpperCase();
-          const bName = b.name.toUpperCase();
-          if (aName < bName) return sortDir === 'asc' ? -1 : 1;
-          if (aName > bName) return sortDir === 'asc' ? 1 : -1;
-          return 0;
+          const aName = a.name.toUpperCase()
+          const bName = b.name.toUpperCase()
+            if (aName < bName) return sortDir === 'asc' ? -1 : 1
+            if (aName > bName) return sortDir === 'asc' ? 1 : -1
+              return 0;
         } else if (sortKey === 'createdAt') {
-          const aDate = new Date(a.createdAt);
-          const bDate = new Date(b.createdAt);
-          if (aDate < bDate) return sortDir === 'asc' ? -1 : 1;
-          if (aDate > bDate) return sortDir === 'asc' ? 1 : -1;
-          return 0;
+          const aDate = new Date(a.createdAt)
+          const bDate = new Date(b.createdAt)
+            if (aDate < bDate) return sortDir === 'asc' ? -1 : 1
+            if (aDate > bDate) return sortDir === 'asc' ? 1 : -1
+              return 0
         } else {
-          return 0;
+          return 0
         }
       })
-    : [];
+    : []
 
   return (
     <div className="Store">
