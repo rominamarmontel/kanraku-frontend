@@ -34,7 +34,7 @@ const Navbar = () => {
         <>
           <NavLink to="/profile">PROFILE</NavLink>
           <NavLink to='/cart'>
-            <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" color="black" state="hover"></lord-icon>
+            <lord-icon src="https://cdn.lordicon.com/udbbfuld.json" trigger="hover" colors="primary:#000000" state="hover"></lord-icon>
           </NavLink>
           <button onClick={handleClick} className='logout'>LOGOUT</button>
         </>

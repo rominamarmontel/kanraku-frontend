@@ -1,0 +1,70 @@
+.CartPage {
+  display:flex;
+  flex-direction: row ;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+
+.msg-empty {
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+  font-size: 2rem;
+}
+
+.CartPage .productInCart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 5rem; 
+  padding: 1rem 2rem;
+  max-width : 100%;
+  margin-top: 1rem;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  max-width : 100%;
+}
+
+.CartPage .productInCart div {
+  width: 5rem;
+}
+
+.CartPage .checkout{
+  margin-top: 1rem;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  max-width : 100%;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+}
+
+.checkout button {
+  margin-top: 1rem;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.remove-all-btn button {
+  margin-top: 2rem;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  border: none;
+}
+
+.btn-delete, .btn-delete:hover {
+  background-color: white;
+  max-width: 2rem;
+  border: none;
+}
+
+.text {
+  color: rgb(69, 68, 68);
+  font-size: 0.9rem;;
+}
