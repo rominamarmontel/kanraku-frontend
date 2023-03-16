@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Confetti from 'react-confetti'
 import './ProductCreatePage.css'
 import myApi from '../../../service/service'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCreatePage = () => {
   const [name, setName] = useState('')
@@ -14,7 +14,6 @@ const ProductCreatePage = () => {
   const [description, setDescription] = useState('')
   const [showConfetti, setShowConfetti] = useState(false)
   const [imageFile, setImageFile] = useState('');
-  const [imageURL, setImageURL] = useState('');
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
@@ -24,25 +23,22 @@ const ProductCreatePage = () => {
       const formData = new FormData();
 
       formData.append("image", imageFile);
-
-      const { data: { image } } = await myApi.post("/products/images", formData);
-      setImageURL(image);
+      formData.append("name", name);
+      formData.append("brand", brand);
+      formData.append("category", category);
+      formData.append("price", price);
+      formData.append("countInStock", countInStock);
+      formData.append("description", description);
 
       const productToCreate = { name, image, brand, category, description, price, countInStock }
 
-      const response = await myApi.post('/products/create', productToCreate)
+      const response = await myApi.post('/products/create', formData)
       if (!productToCreate) {
         setMessage('Please enter product information')
       }
       if (response.status === 201) {
         setShowConfetti(true)
-        setName('')
-        setImage('')
-        setBrand('')
-        setCategory('')
-        setPrice('')
-        setCountInStock('')
-        setDescription('')
+
         setTimeout(() => {
           setShowConfetti(false)
           navigate('/store')

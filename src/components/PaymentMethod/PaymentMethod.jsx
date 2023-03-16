@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './PaymentMethod.css'
-// import Order from '../../../../kanraku-backend/models/Order.model'
 
 const PaymentMethod = () => {
   const [paymentMethod, setPaymentMethod] = useState('')
@@ -28,17 +27,7 @@ const PaymentMethod = () => {
       setErrorMessage('Your order is not valid.')
       return
     }
-  
     navigate('/orders')
-
-    // try {
-    //   const order = new Order({ paymentMethod })
-    //   order.purchaseDate = new Date()
-    //   await order.save()
-
-    // } catch (error) {
-    //   setErrorMessage('Error creating order.')
-    // }
   }
   
   return (

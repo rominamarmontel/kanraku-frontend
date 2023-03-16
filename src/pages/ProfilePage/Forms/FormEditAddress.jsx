@@ -43,7 +43,6 @@ const EditAddress = () => {
 
     try {
       const response = await myApi.patch('/user/edit', editedAddress)
-      // console.log(editedAddress)
       setUser(response.data)
       navigate('/profile')
       

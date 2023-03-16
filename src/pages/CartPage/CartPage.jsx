@@ -1,12 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import myApi from '../../service/service'
-import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import ProductInCartCard from "../../components/ProductInCartCard/ProductInCartCard";
 import './CartPage.css'
 
 const CartPage = () => {
-  const { user } = useContext(AuthContext)
   const [product, setProduct] = useState(null)
   const [totalPrice, setTotalPrice] = useState(0)
   const [qty, setQty] = useState('')
@@ -19,7 +17,6 @@ const CartPage = () => {
     myApi
       .get(url)
       .then((res) => {
-        // console.log(res.data)
         setProduct(res.data)
         setQty(res.data.qty)
         setName(res.data.name)
@@ -47,8 +44,8 @@ const CartPage = () => {
     }
   }
 
-  //to delete once fixed
-  if (!user || !product) return
+
+  if (!product) return <p>Loading..</p>
 
   return (
     <>

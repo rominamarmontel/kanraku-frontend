@@ -14,15 +14,12 @@ const Navbar = () => {
     navigate('/')
 
   }
-  const handleInputChange = (event) => {
-    setSearchParams({ q: event.target.value })
-  };
+
   return (
     <div className='Navbar'>
 
       <NavLink to="/"><img src='/images/logo3.png' alt='logo_yoko' width={600} /></NavLink>
 
-      <NavLink to="/">HOME</NavLink>
       <NavLink to="/store">STORE</NavLink>
       <NavLink to="/about">ABOUT</NavLink>
       <NavLink to="/contact">CONTACT</NavLink>
