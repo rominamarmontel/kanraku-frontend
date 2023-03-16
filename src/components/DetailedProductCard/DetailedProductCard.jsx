@@ -21,11 +21,15 @@ const DetailedProductCard = () => {
   const params = useParams();
   const productId = params.id;
   const navigate = useNavigate();
+  const [message, setMessage] = useState('')
 
   //Click a Cart button
   const addToCartHandler = async () => {
     if (!user) {
       return navigate("/login");
+    }
+    if (qty === 0) {
+      setMessage('Please enter the quantity!')
     } else {
       await myApi.post(`/cart/add`, { product: product._id, qty });
       navigate("/cart");
@@ -152,6 +156,7 @@ const DetailedProductCard = () => {
                     </tr>
                   </tbody>
                 </table>
+                <div style={{ color: '#FF0000' }}>{message}</div>
                 <div className="add-btn">
                   <button
                     onClick={addToCartHandler}

@@ -15,6 +15,7 @@ const ProductCreatePage = () => {
   const [showConfetti, setShowConfetti] = useState(false)
   const [imageFile, setImageFile] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
@@ -30,6 +31,9 @@ const ProductCreatePage = () => {
       const productToCreate = { name, image, brand, category, description, price, countInStock }
 
       const response = await myApi.post('/products/create', productToCreate)
+      if (!productToCreate) {
+        setMessage('Please enter product information')
+      }
       if (response.status === 201) {
         setShowConfetti(true)
         setName('')
@@ -133,6 +137,7 @@ const ProductCreatePage = () => {
                 </div>
               </div>
             </div>
+            <div>{message}</div>
             <button>Create</button>
             {showConfetti && <Confetti recycle={false} />}
           </form>
