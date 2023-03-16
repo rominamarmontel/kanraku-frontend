@@ -55,7 +55,7 @@
   border-bottom: 1px solid black;
 }
 .DetailedProductCard .product-details td {
-  width: 10rem;
+  width: 15rem;
   text-align: right;
 }
 .DetailedProductCard tr, .DetailedProductCard .countInStock , .DetailedProductCard .brand {
@@ -67,7 +67,7 @@
   position: relative;
 }
 .DetailedProductCard td:nth-child(2) {
-  text-align: center;
+  text-align: right;
 }
 .DetailedProductCard input {
   border: none;
@@ -80,6 +80,7 @@
   font-size: 2rem;
   color: rgb(234, 93, 42);
   margin-bottom: 2rem;
+  text-align: right;
 }
 .DetailedProductCard .description {
   border-top: 1px solid black;
@@ -102,6 +103,12 @@
   object-fit: contain;
 }
 .product-details picture img {
-  width: 100%;
-  height: 30rem;
+  width: 30rem;
+  height: 100%;
+}
+.product-details input {
+  text-align: right;
+}
+.product-details message {
+  color:rgb(234, 93, 42)
 }
