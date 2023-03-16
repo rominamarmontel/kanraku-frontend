@@ -4,32 +4,31 @@ import PaymentMethod from '../../components/PaymentMethod/PaymentMethod'
 
 const ShippingPage = () => {
   const { user } = useContext(AuthContext)
-
-  const [address, setAddress] = useState(user?.shippingAddress?.address || '');
-  const [postalCode, setPostalCode] = useState(user?.shippingAddress?.postalCode || '');
-  const [city, setCity] = useState(user?.shippingAddress?.city || '');
-  const [country, setCountry] = useState(user?.shippingAddress?.country || '');
-  // const [phone, setPhone] = useState(user?.shippingAddress?.phone || '');
-  const [isAddressValid, setIsAddressValid] = useState(false);
+  const [address, setAddress] = useState(user.shippingAddress?.address || '')
+  const [postalCode, setPostalCode] = useState(user.shippingAddress?.postalCode || '')
+  const [city, setCity] = useState(user.shippingAddress?.city || '')
+  const [country, setCountry] = useState(user.shippingAddress?.country || '')
+  // const [phone, setPhone] = useState(user?.shippingAddress?.phone || '')
+  const [isAddressValid, setIsAddressValid] = useState(false)
 
   const handleAddressChange = (event) => {
-    setAddress(event.target.value);
+    setAddress(event.target.value)
   }
 
   const handlePostalCodeChange = (event) => {
-    setPostalCode(event.target.value);
+    setPostalCode(event.target.value)
   }
 
   const handleCityChange = (event) => {
-    setCity(event.target.value);
+    setCity(event.target.value)
   }
 
   const handleCountryChange = (event) => {
-    setCountry(event.target.value);
+    setCountry(event.target.value)
   }
 
   // const handlePhoneChange = (event) => {
-  //   setPhone(event.target.value);
+  //   setPhone(event.target.value)
   // }
 
   const handleAddressValidation = () => {
@@ -57,8 +56,8 @@ const ShippingPage = () => {
   }
   
   const handleSubmit = (event) => {
-    event.preventDefault();
-    handleAddressValidation();
+    event.preventDefault()
+    handleAddressValidation()
   }
 
   return (

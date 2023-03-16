@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import myApi from '../../service/service'
-import './ProductInCartCard.css'
 
 const ProductInCartCard = (props) => {
   const [products, setProducts] = useState('')
