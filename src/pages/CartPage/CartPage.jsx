@@ -7,23 +7,18 @@ import './CartPage.css'
 const CartPage = () => {
   const [product, setProduct] = useState(null)
   const [totalPrice, setTotalPrice] = useState(0)
-  const [qty, setQty] = useState('')
-  const [name, setName] = useState('')
-  const [image, setImage] = useState('')
-  const [price, setPrice] = useState(0)
-
-  useEffect(() => {
-    const url = '/cart';
+  const fetchCart = () => {
     myApi
-      .get(url)
+      .get('/cart')
       .then((res) => {
         setProduct(res.data)
-        setQty(res.data.qty)
-        setName(res.data.name)
-        setImage(res.data.image)
-        setPrice(res.data.price)
-      }).catch((e) => console.error(e))
+      })
+      .catch((e) => console.error(e))
+  }
+  useEffect(() => {
+    fetchCart()
   }, [])
+
   useEffect(() => calculateTotalPrice(), [product])
 
   function calculateTotalPrice() {
@@ -44,7 +39,6 @@ const CartPage = () => {
     }
   }
 
-
   if (!product) return <p>Loading..</p>
 
   return (
@@ -55,7 +49,7 @@ const CartPage = () => {
       <>
       <div className="CartPage">
           <div className='items-list'>{product.map((item) => {
-            return <ProductInCartCard key={item.product._id} item={item} />
+            return <ProductInCartCard key={item.product._id} item={item} onRemove={fetchCart} />
           })}
           </div>
 
