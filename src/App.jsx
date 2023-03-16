@@ -16,9 +16,8 @@ import FormAddAddress from "./pages/ProfilePage/Forms/FormAddAddress";
 import Error from "./pages/Error/Error";
 import DetailedProductPage from "./pages/DetailedProductPage/DetailedProductPage";
 import CartPage from "./pages/CartPage/CartPage";
+import CheckOutgPage from './pages/CheckoutPage/CheckOutPage'
 import OrderPage from "./pages/OrderPage/OrderPage";
-import ShippingPage from "./pages/ShippingPage/ShippingPage";
-import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
@@ -53,8 +52,8 @@ function App() {
             <Route path="/admin/orderlist" element={<OrderListPage />} />
             <Route path="/admin/products/create" element={<ProductCreatePage />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/shipping" element={<ShippingPage />} />
-            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/checkout" element={<CheckOutgPage />} />
+
           </Route>
 
             
