@@ -1,26 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
 import myApi from '../../service/service'
 import { AuthContext } from "../../context/AuthContext";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProductInCartCard from "../../components/ProductInCartCard/ProductInCartCard";
-
+import './CartPage.css'
 
 const CartPage = () => {
   const [qty, setQty] = useState('')
   const [name, setName] = useState('')
-  const [brand, setBrand] = useState('');
-  const [category, setCategory] = useState('');
-  const [image, setImage] = useState("");
-  const [price, setPrice] = useState(0);
-  const [countInStock, setCountInStock] = useState(0);
-  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState('')
+  const [category, setCategory] = useState('')
+  const [image, setImage] = useState('')
+  const [price, setPrice] = useState(0)
+  const [countInStock, setCountInStock] = useState(0)
+  const [description, setDescription] = useState('')
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState(null)
   const [username, setUsername] = useState('')
-  const params = useParams();
-  const productId = params.id;
-  const [totalPrice, setTotalPrice] = useState(0)
 
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     const url = '/cart';
@@ -31,17 +29,15 @@ const CartPage = () => {
         setProduct(res.data)
         setQty(res.data.qty)
         setName(res.data.name)
-        setImage(res.data.image);
-        setBrand(res.data.brand);
-        setCategory(res.data.category);
-        setPrice(res.data.price);
-        setCountInStock(res.data.countInStock);
-        setDescription(res.data.description);
+        setImage(res.data.image)
+        setBrand(res.data.brand)
+        setCategory(res.data.category)
+        setPrice(res.data.price)
+        setCountInStock(res.data.countInStock)
+        setDescription(res.data.description)
         setUsername(res.data.username)
       }).catch((e) => console.error(e))
-    // console.log('=======', product, user)
-    // console.log('= = = = ', product[0].product)
-  }, []);
+  }, [])
   useEffect(() => calculateTotalPrice(), [product])
 
   function calculateTotalPrice() {
@@ -52,20 +48,50 @@ const CartPage = () => {
     setTotalPrice(allPrices)
   }
 
+  const handleRemoveAll = async () => {
+    try {
+      const url = '/cart/remove-all'
+      const res = await myApi.delete(url)
+      setProduct([])
+      setTotalPrice(0)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  
   //to delete once fixed
   if (!user || !product) return
 
   return (
     <>
-      <div className="container">
-        <div className="title">
-          {product.map((item) => {
+    {product.length === 0 ? (
+      <div className='msg-empty'>Your cart is empty</div>
+    ) : (
+      <>
+      <div className="CartPage">
+          <div className='items-list'>{product.map((item) => {
             return <ProductInCartCard key={item._id} item={item} />
           })}
+          </div>
+
+        <div className="checkout">
+          <p><span className='text'>Total:</span> {totalPrice} €</p>
+          <Link to="/shipping">
+            <button> CHECKOUT 
+              <lord-icon src="https://cdn.lordicon.com/jxwksgwv.json" trigger="hover" colors="primary:#ffffff" state="hover-2" />
+              </button>
+          </Link>
         </div>
-        <div>Amount total: {totalPrice}</div>
       </div>
-      <Link to='/payment'><button>CHECKOUT</button></Link>
+
+      <div className='remove-all-btn'>
+        <button onClick={handleRemoveAll}> Empty cart 
+        <lord-icon src="https://cdn.lordicon.com/jmkrnisz.json" trigger="hover" colors="primary:#ffffff"/>
+        </button>
+      </div>
+
+      </>
+    )}
     </>
   )
 }

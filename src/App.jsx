@@ -17,14 +17,12 @@ import Error from "./pages/Error/Error";
 import DetailedProductPage from "./pages/DetailedProductPage/DetailedProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import OrderPage from "./pages/OrderPage/OrderPage";
-import PlaceOrderPage from "./pages/PlaceOrderPage/PlaceOrderPage";
 import ShippingPage from "./pages/ShippingPage/ShippingPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
 import UserListPage from "./pages/Admin/UserListPage/UserListPage";
 import UserEditPage from "./pages/Admin/UserEditPage/UserEditPage";
 import OrderListPage from "./pages/Admin/OrderListPage/OrderListPage";
 import ProductCreatePage from './pages/Admin/ProductCreatePage/ProductCreatePage'
-import EditProductForm from "./components/EditProductForm/EditProductForm";
 
 
 function App() {
@@ -37,6 +35,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search/:keyword" element={<Store />} />
+          <Route path="/products/:id" element={<DetailedProductPage />} />
 
           <Route element={<IsLoggedOut />}>
             <Route path="/login" element={<Login />} />
@@ -45,24 +44,21 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<ProfilePage />} />
-            <Route
-              path="/profile/edit-informations"
-              element={<FormEditProfile />}
-            />
+            <Route path="/profile/edit-informations" element={<FormEditProfile />}/>
             <Route path="/profile/edit-address" element={<FormEditAddress />} />
             <Route path="/profile/add-address" element={<FormAddAddress />} />
             <Route path="/orders" element={<OrderPage />} />
-            <Route path="/placeorder" element={<PlaceOrderPage />} />
-            <Route path="/shipping" element={<ShippingPage />} />
-            <Route path="/payment" element={<PaymentPage />} />
             <Route path="/admin/userlist" element={<UserListPage />} />
             <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
             <Route path="/admin/orderlist" element={<OrderListPage />} />
             <Route path="/admin/products/create" element={<ProductCreatePage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/shipping" element={<ShippingPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
           </Route>
-          <Route path="/products/:id" element={<DetailedProductPage />} />
-          <Route path="*" element={<Error />} />
+
+            
+            <Route path="*" element={<Error />} />
         </Route>
       </Routes>
     </div>

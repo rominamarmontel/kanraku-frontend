@@ -1,0 +1,8 @@
+.shippingPage .shippingPageForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.shippingPage .shippingPageForm form label {
+  max-width : 5rem; 
+}
