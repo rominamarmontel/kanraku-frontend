@@ -32,17 +32,22 @@ const PaymentMethod = () => {
   
   return (
     <div className='PaymentMethod'>
-      <h3>Choose your payment method</h3>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type='radio' id='creditCard' name='paymentMethod' value='creditCard' checked={paymentMethod === 'creditCard'} onChange={handlePaymentMethodChange} />
-          <label htmlFor='creditCard'>Credit Card</label>
-        </div>
-        <div>
-          <input type='radio' id='paypal' name='paymentMethod' value='paypal' checked={paymentMethod === 'paypal'} onChange={handlePaymentMethodChange} />
-          <label htmlFor='paypal'>Paypal</label>
-        </div>
+    <form onSubmit={handleSubmit}>
+      <h3>2. Choose your payment method</h3>
+
+        <table>
+        <tbody>
+          <tr>
+            <td><input type='radio' id='creditCard' name='paymentMethod' value='creditCard' checked={paymentMethod === 'creditCard'} onChange={handlePaymentMethodChange} /></td>
+            <td><label htmlFor='creditCard'>Credit Card</label></td>
+          </tr>
+          <tr>
+            <td><input type='radio' id='paypal' name='paymentMethod' value='paypal' checked={paymentMethod === 'paypal'} onChange={handlePaymentMethodChange} /></td>
+            <td><label htmlFor='paypal'>Paypal</label></td>
+          </tr>
+          </tbody>
+        </table>
 
         {errorMessage && <p className='error'>{errorMessage}</p>}
         <button type='submit'>Continue</button>

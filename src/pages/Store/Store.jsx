@@ -36,18 +36,25 @@ const Store = () => {
 
   const sortedProducts = products
     ? products.slice().sort((a, b) => {
+          // sort by name
         if (sortKey === 'name') {
           const aName = a.name.toUpperCase()
           const bName = b.name.toUpperCase()
-            if (aName < bName) return sortDir === 'asc' ? -1 : 1
-            if (aName > bName) return sortDir === 'asc' ? 1 : -1
-              return 0;
+          if (aName < bName) return sortDir === 'asc' ? -1 : 1
+          if (aName > bName) return sortDir === 'asc' ? 1 : -1
+          return 0;
+          // sort by created
         } else if (sortKey === 'createdAt') {
           const aDate = new Date(a.createdAt)
           const bDate = new Date(b.createdAt)
-            if (aDate < bDate) return sortDir === 'asc' ? -1 : 1
-            if (aDate > bDate) return sortDir === 'asc' ? 1 : -1
-              return 0
+          if (aDate < bDate) return sortDir === 'asc' ? -1 : 1
+          if (aDate > bDate) return sortDir === 'asc' ? 1 : -1
+          return 0
+          // sort by price
+        } else if (sortKey === 'price') {
+          if (a.price < b.price) return sortDir === 'asc' ? -1 : 1
+          if (a.price > b.price) return sortDir === 'asc' ? 1 : -1
+          return 0
         } else {
           return 0
         }
@@ -69,6 +76,7 @@ const Store = () => {
 
             <button onClick={() => handleSort('name')}>Sort by name</button>
             <button onClick={() => handleSort('createdAt')}>Sort by latest</button>
+            <button onClick={() => handleSort('price')}>Sort by price</button>
 
           </div>
 
@@ -84,3 +92,4 @@ const Store = () => {
 };
 
 export default Store;
+

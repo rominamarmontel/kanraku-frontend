@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import PaymentMethod from '../../components/PaymentMethod/PaymentMethod'
+import './CheckOutPage.css'
 
-const ShippingPage = () => {
+const CheckOutPage = () => {
   const { user } = useContext(AuthContext)
   const [address, setAddress] = useState(user.shippingAddress?.address || '')
   const [postalCode, setPostalCode] = useState(user.shippingAddress?.postalCode || '')
   const [city, setCity] = useState(user.shippingAddress?.city || '')
   const [country, setCountry] = useState(user.shippingAddress?.country || '')
   const [isAddressValid, setIsAddressValid] = useState(false)
+  
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value)
@@ -56,36 +58,44 @@ const ShippingPage = () => {
     <div className='CheckOutPage'> 
       <h2>Check out</h2>
 
+      <div className='form'>
     <form className='shippingAddress' onSubmit={handleSubmit}>
-      <h3>Confirm you address shipping</h3>
+      <h3>1. Confirm you address shipping</h3>
 
-      <div>
-        <label htmlFor='address'>Address:</label>
-        <input type='text' value={address} name='address' id='address' required onChange={handleAddressChange} />
-      </div>
+      <table>
+        <tbody>
+        <tr>
+          <td><label htmlFor='address'>Address:</label></td>
+          <td><input type="text" value={address} name='address' id='address' onChange={handleAddressChange} placeholder='Address'/></td>
+        </tr>
 
-      <div>
-        <label htmlFor='postalCode'>Postal Code:</label>
-        <input type='text' value={postalCode} name='postalCode' id='postalCode' required onChange={handlePostalCodeChange} />
-      </div>
+        <tr>
+          <td><label htmlFor='postalCode'>Postal Code:</label></td>
+          <td><input type="text" value={postalCode} name='postalCode' id='postalCode' onChange={handlePostalCodeChange} placeholder='Postal code'/></td>
+        </tr>
 
-      <div>
-        <label htmlFor='city'>City:</label>
-        <input type='text' value={city} name='city' id='city' required onChange={handleCityChange} />
-      </div>
+        <tr>
+          <td><label htmlFor='city'>City:</label></td>
+          <td><input type="text" value={city} name='city' id='city' onChange={handleCityChange} placeholder='City'/></td>
+        </tr>
 
-      <div>
-        <label htmlFor='country'>Country:</label>
-        <input type='text' value={country} name='country' id='country' required onChange={handleCountryChange} />
-      </div>
+        <tr>
+            <td><label htmlFor='country'>Country:</label></td>
+            <td><input type="text" value={country} name='country' id='country' onChange={handleCountryChange} placeholder='Country'/></td>
+        </tr>
+        </tbody>
+      </table>
 
       <div className="form-address-btns">
-        <button type='submit'>Validate Address</button>
+        <button type='submit'>Confirm Address</button>
       </div>
     </form>
 
+    </div>
+
+
     {isAddressValid && (
-      <div className='payment-method'>
+      <div className='form'>
        <PaymentMethod />
       </div>
     )}
@@ -93,4 +103,4 @@ const ShippingPage = () => {
   )
 }
 
-export default ShippingPage
+export default CheckOutPage

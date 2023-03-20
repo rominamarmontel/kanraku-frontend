@@ -55,18 +55,26 @@ const AddAddress = () => {
     <div className='FormAddAddress'>
       <h2>Add Shipping Address</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor='address'>New Address:</label>
-          <input type="text" value={address} name='address' id='address' onChange={handleAddressChange} placeholder='new address'/>
-
-        <label htmlFor='postalCode'>New Postal Code:</label>
-          <input type="text" value={postalCode} name='postalCode' id='postalCode' onChange={handlePostalCodeChange} placeholder='new postal code'/>
-
-        <label htmlFor='city'>New City:</label>
-          <input type="text" value={city} name='city' id='city' onChange={handleCityChange} placeholder='new city'/>
-
-        <label htmlFor='country'>New Country:</label>
-          <input type="text" value={country} name='country' id='country' onChange={handleCountryChange} placeholder='new country'/>
-
+      <table>
+      <tbody>
+        <tr>
+          <td><label htmlFor='address'>Address:</label></td>
+          <td><input type="text" value={address} name='address' id='address' onChange={handleAddressChange} placeholder='Address'/></td>
+        </tr>
+        <tr>
+          <td><label htmlFor='postalCode'>Postal Code:</label></td>
+          <td><input type="text" value={postalCode} name='postalCode' id='postalCode' onChange={handlePostalCodeChange} placeholder='Postal code'/></td>
+        </tr>
+        <tr>
+          <td><label htmlFor='city'>City:</label></td>
+          <td><input type="text" value={city} name='city' id='city' onChange={handleCityChange} placeholder='City'/></td>
+        </tr>
+        <tr>
+            <td><label htmlFor='country'>Country:</label></td>
+            <td><input type="text" value={country} name='country' id='country' onChange={handleCountryChange} placeholder='Country'/></td>
+        </tr>
+      </tbody>
+      </table>
         <button>Save Changes</button>
       </form>
       <div>{message}</div>

@@ -32,12 +32,15 @@
   width: 5rem;
 }
 
-.CartPage .checkout{
+.CartPage .checkout{ 
   margin-top: 1rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   padding: 1.5rem;
   max-width : 100%;
+  max-height: 10rem;
   border: 1px solid grey;
   border-radius: 0.5rem;
 }
