@@ -1,8 +1,25 @@
-.shippingPage .shippingPageForm {
-  display: flex;
-  flex-direction: column;
+.CheckOutPage {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  width: 100%;
 }
 
-.shippingPage .shippingPageForm form label {
-  max-width : 5rem; 
+.CheckOutPage .form {
+  margin: 0 5rem;
+}
+
+.CheckOutPage h2 {
+  margin: 1.5rem;
+}
+
+.CheckOutPage .shippingAddress h3 {
+  margin: 1.5rem;
+}
+
+.CheckOutPage .shippingAddress {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }

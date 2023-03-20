@@ -1,7 +1,7 @@
 .Store {
   padding: 0;
   background-color: #ffffff;
-  width: 100vw;
+  width: 90vw;
 }
 .Store .container {
   width: 90%;
@@ -27,14 +27,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 5rem;
   gap: 1rem;
 }
 .Create button {
   color:#ffffff;
   background-color: black;
   padding: 0.6em 1em;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   font-size: .8em;
 }
 .Create button:hover {
@@ -42,23 +41,23 @@
   border-color: gray;
 }
 .Create .btn-create {
-  color:#ffffff;
-  background-color: black;
-  padding: 0.6em 1em;
-  border-radius: 3px;
-  font-size: .8em;
-  margin-right: 10rem;
-}
-.Create .btn-create:hover {
   background-color: gray;
   border-color: gray;
+  color: white;
+  padding: 0.6em 1em;
+  border-radius: 0.25rem;
+  font-size: .8em;
+  margin-right: 5rem;
+}
+.Create .btn-create:hover {
+  color:#ffffff;
+  background-color: black;
 }
 
-.productCard {
+.Store .productCard {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: .15rem;
 }
-/* .productCard img {
-  aspect-ratio: 5/5;
-} */
+

@@ -8,13 +8,6 @@ import EditProductForm from "../EditProductForm/EditProductForm";
 const DetailedProductCard = () => {
   const [editIsOn, setEditIsOn] = useState(false);
   const [deleteIsOn, setDeleteIsOn] = useState(false);
-  const [name, setName] = useState("");
-  const [brand, setBrand] = useState("");
-  const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
-  const [price, setPrice] = useState(0);
-  const [countInStock, setCountInStock] = useState(0);
-  const [description, setDescription] = useState("");
   const [qty, setQty] = useState(0);
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState({});
@@ -23,7 +16,7 @@ const DetailedProductCard = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState('')
 
-  //Click a Cart button
+  //Click Cart button
   const addToCartHandler = async () => {
     if (!user) {
       return navigate("/login");

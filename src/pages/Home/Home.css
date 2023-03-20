@@ -116,7 +116,7 @@
   flex-direction: row-reverse;
   height: auto;
   margin-top: 2rem;
-  width: 100vw;
+  width: max-content;
 }
 .new-products h2 {
   margin: 0;

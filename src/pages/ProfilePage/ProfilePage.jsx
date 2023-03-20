@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import './ProfilePage.css'
+import DeleteProfileButton from '../../components/DeleteProfileButton/DeleteProfileButton'
 
 const ProfilePage = (props) => {
   const { user } = useContext(AuthContext)
@@ -52,6 +53,8 @@ const ProfilePage = (props) => {
             </Link>
         </div>
       </div>
+
+      <DeleteProfileButton />
     </div>
   );
 }

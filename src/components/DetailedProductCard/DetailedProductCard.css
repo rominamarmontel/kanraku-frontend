@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  width: 100%;
+  width: 90vw;
 }
 .DetailedProductCard .container {
   width: 90%;
@@ -108,6 +108,6 @@
 .product-details input {
   text-align: right;
 }
-.product-details message {
+.product-details .message {
   color:rgb(234, 93, 42)
 }
