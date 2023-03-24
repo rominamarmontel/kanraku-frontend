@@ -59,8 +59,8 @@ const CheckOutPage = () => {
       <h2>Check out</h2>
 
       <div className='form'>
-    <form className='shippingAddress' onSubmit={handleSubmit}>
-      <h3>1. Confirm you address shipping</h3>
+        <form className='shippingAddress' onSubmit={handleSubmit}>
+      <h3>1. Confirm shipping address </h3>
 
       <table>
         <tbody>
