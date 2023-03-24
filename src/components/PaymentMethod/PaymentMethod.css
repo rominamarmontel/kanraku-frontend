@@ -6,8 +6,13 @@
   margin: 1.5rem;
 }
 
+.PaymentMethod form button {
+  margin: 0 10.5rem;
+}
+
 .PaymentMethod {
-  margin: 2rem 0;}
+  margin: 2rem 0;
+}
 
 .PaymentMethod form {
   margin: 1.5rem;

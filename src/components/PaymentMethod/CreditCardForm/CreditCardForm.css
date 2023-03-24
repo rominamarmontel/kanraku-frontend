@@ -1,0 +1,11 @@
+
+.CreditCardForm {
+  margin: 2rem 0;
+}
+
+.CreditCardForm form {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
